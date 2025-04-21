@@ -64,10 +64,10 @@ export const themes: ThemeOption[] = [
     background: "#FEF2F2"
   },
   
-  // Theme 5: Windsurf Dark
+  // Theme 5: Turquoise Dark
   {
-    name: "Windsurf Dark",
-    primary: "#0AC5B3",    // Teal/turquoise from the Windsurf site
+    name: "Turquoise Dark",
+    primary: "#0AC5B3",    // Teal/turquoise color
     primaryLight: "#2FDECF",
     primaryDark: "#09A597",
     secondary: "#F24E1E",  // Orange accent for contrast

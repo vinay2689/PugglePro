@@ -23,31 +23,173 @@
     transition: background-color 0.3s ease, color 0.3s ease;
   }
   
-  /* Custom dark theme styles */
+  /* Custom dark theme styles - applies to all elements with proper contrast */
   body.dark-theme {
     background-color: var(--background);
     color: var(--text-light);
   }
   
+  /* Fix white backgrounds in dark mode */
   body.dark-theme .bg-white,
-  body.dark-theme .bg-background {
+  body.dark-theme .bg-background,
+  body.dark-theme div[class*="bg-white"],
+  body.dark-theme section[class*="bg-white"],
+  body.dark-theme form[class*="bg-white"],
+  body.dark-theme aside[class*="bg-white"],
+  body.dark-theme nav[class*="bg-white"],
+  body.dark-theme header[class*="bg-white"],
+  body.dark-theme footer[class*="bg-white"] {
     background-color: #171717 !important;
   }
   
+  /* Fix cards, modals, and inputs in dark mode */
+  body.dark-theme .card,
+  body.dark-theme [class*="card"],
+  body.dark-theme [class*="modal"],
+  body.dark-theme [class*="dialog"],
+  body.dark-theme [class*="popover"],
+  body.dark-theme [class*="dropdown"],
+  body.dark-theme [role="dialog"] {
+    background-color: #1F1F1F !important;
+    color: var(--text-light) !important;
+    border-color: #333 !important;
+  }
+  
+  /* Fix form elements in dark mode */
+  body.dark-theme input,
+  body.dark-theme textarea,
+  body.dark-theme select,
+  body.dark-theme .input,
+  body.dark-theme [type="text"],
+  body.dark-theme [type="email"],
+  body.dark-theme [type="password"],
+  body.dark-theme [type="number"],
+  body.dark-theme [type="tel"],
+  body.dark-theme [type="search"],
+  body.dark-theme [type="url"],
+  body.dark-theme [role="textbox"],
+  body.dark-theme .form-input {
+    background-color: #1F1F1F !important;
+    color: white !important;
+    border-color: #444 !important;
+  }
+  
+  /* Ensure placeholders are visible in dark mode */
+  body.dark-theme input::placeholder,
+  body.dark-theme textarea::placeholder {
+    color: #999 !important;
+  }
+  
+  /* Fix form focus states */
+  body.dark-theme input:focus,
+  body.dark-theme textarea:focus,
+  body.dark-theme select:focus {
+    border-color: var(--primary-color) !important;
+    outline-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 2px rgba(var(--primary-color), 0.3) !important;
+  }
+  
+  /* Target specific problematic areas */
+  body.dark-theme [class*="container"],
+  body.dark-theme [class*="section"],
+  body.dark-theme [class*="panel"],
+  body.dark-theme [class*="box"] {
+    background-color: var(--background) !important;
+  }
+  
+  /* Fix text colors in dark mode */
+  body.dark-theme .text-black,
   body.dark-theme .text-gray-800,
-  body.dark-theme .text-gray-900 {
+  body.dark-theme .text-gray-900,
+  body.dark-theme *[class*="text-black"],
+  body.dark-theme *[class*="text-gray-800"],
+  body.dark-theme *[class*="text-gray-900"] {
     color: var(--text-light) !important;
   }
   
+  body.dark-theme .text-gray-500,
   body.dark-theme .text-gray-600,
-  body.dark-theme .text-gray-700 {
+  body.dark-theme .text-gray-700,
+  body.dark-theme *[class*="text-gray-500"],
+  body.dark-theme *[class*="text-gray-600"],
+  body.dark-theme *[class*="text-gray-700"] {
     color: var(--text-dark) !important;
   }
   
+  /* Fix border colors in dark mode */
   body.dark-theme .border,
-  body.dark-theme .border-gray-100,
-  body.dark-theme .border-gray-200 {
+  body.dark-theme [class*="border"],
+  body.dark-theme [class*="divide"] {
     border-color: #333 !important;
+  }
+  
+  /* Fix specific problematic elements */
+  body.dark-theme .bg-slate-50,
+  body.dark-theme .bg-gray-50,
+  body.dark-theme .bg-gray-100,
+  body.dark-theme .bg-gray-200 {
+    background-color: #1A1A1A !important;
+  }
+  
+  /* Handle shadows in dark mode */
+  body.dark-theme [class*="shadow"] {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3) !important;
+  }
+  
+  /* Fix buttons in dark theme */
+  body.dark-theme button:not([class*="primary"]),
+  body.dark-theme .button:not([class*="primary"]) {
+    background-color: #2A2A2A !important;
+    color: var(--text-light) !important;
+    border-color: #444 !important;
+  }
+  
+  /* Keep primary buttons with theme color */
+  body.dark-theme [class*="primary"] {
+    color: var(--text-light) !important;
+  }
+  
+  /* Fix specific areas of the landing page in dark mode */
+  body.dark-theme section,
+  body.dark-theme article,
+  body.dark-theme aside,
+  body.dark-theme .block,
+  body.dark-theme div[class*="bg-"], 
+  body.dark-theme div[style*="background"],
+  body.dark-theme div[style*="bg-"] {
+    background-color: var(--background) !important;
+  }
+  
+  /* Force dark backgrounds on any elements with inline styles */
+  body.dark-theme [style*="background-color"],
+  body.dark-theme [style*="background:#"],
+  body.dark-theme [style*="background: #"],
+  body.dark-theme [style*="background-color:#"],
+  body.dark-theme [style*="background-color: #"] {
+    background-color: #171717 !important;
+  }
+  
+  /* Fix text on dark backgrounds - use more specific selectors */
+  body.dark-theme h1,
+  body.dark-theme h2,
+  body.dark-theme h3,
+  body.dark-theme h4,
+  body.dark-theme h5,
+  body.dark-theme h6,
+  body.dark-theme p,
+  body.dark-theme span:not([class*="text-primary"]):not([class*="text-secondary"]):not([class*="text-accent"]),
+  body.dark-theme li,
+  body.dark-theme label {
+    color: var(--text-light) !important;
+  }
+  
+  /* Don't override buttons and elements with theme colors */
+  body.dark-theme [style*="color:var(--primary"],
+  body.dark-theme [style*="color: var(--primary"],
+  body.dark-theme [class*="text-primary"],
+  body.dark-theme [class*="text-secondary"],
+  body.dark-theme [class*="text-accent"] {
+    color: inherit !important;
   }
   
   /* Theme transition effects */
