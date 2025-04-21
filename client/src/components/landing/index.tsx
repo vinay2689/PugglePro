@@ -1,5 +1,6 @@
 import { ThemeOption } from "@/lib/color-themes";
-import { useRef } from "react";
+import { useRef, useContext } from "react";
+import { ThemeContext } from "@/context/theme-context";
 import Header from "./header";
 import Hero from "./hero";
 import Features from "./features";
@@ -16,6 +17,8 @@ interface LandingProps {
 }
 
 export default function Landing({ theme }: LandingProps) {
+  const { isDarkTheme } = useContext(ThemeContext);
+  
   const featuresRef = useRef<HTMLDivElement>(null);
   const professionalRef = useRef<HTMLDivElement>(null);
   const creatorsRef = useRef<HTMLDivElement>(null);
@@ -31,7 +34,9 @@ export default function Landing({ theme }: LandingProps) {
   };
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: theme.background }}>
+    <div className={`min-h-screen theme-transition ${isDarkTheme ? 'dark-theme' : ''}`} 
+      style={{ backgroundColor: theme.background }}
+    >
       <Header 
         theme={theme} 
         onNavigate={(section) => {
@@ -45,21 +50,21 @@ export default function Landing({ theme }: LandingProps) {
         }}
       />
       <Hero theme={theme} onRequestDemo={() => scrollToSection(ctaRef)} />
-      <div ref={featuresRef}>
+      <div ref={featuresRef} className="theme-transition">
         <Features theme={theme} />
       </div>
-      <div ref={professionalRef}>
+      <div ref={professionalRef} className="theme-transition">
         <Professionals theme={theme} />
       </div>
-      <div ref={creatorsRef}>
+      <div ref={creatorsRef} className="theme-transition">
         <Creators theme={theme} />
       </div>
-      <div ref={benefitsRef}>
+      <div ref={benefitsRef} className="theme-transition">
         <Benefits theme={theme} />
       </div>
       <Showcase theme={theme} onWatchDemo={() => scrollToSection(ctaRef)} />
       <Testimonials theme={theme} />
-      <div ref={ctaRef}>
+      <div ref={ctaRef} className="theme-transition">
         <CTA theme={theme} />
       </div>
       <Footer theme={theme} />

@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary-color: #3B82F6;
+  --primary-light: #93C5FD;
+  --primary-dark: #1E40AF;
+  --secondary-color: #FBBF24;
+  --accent-color: #10B981;
+  --text-light: #F9FAFB;
+  --text-dark: #111827;
+  --background: #F9FAFB;
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -9,5 +20,38 @@
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Custom dark theme styles */
+  body.dark-theme {
+    background-color: var(--background);
+    color: var(--text-light);
+  }
+  
+  body.dark-theme .bg-white,
+  body.dark-theme .bg-background {
+    background-color: #171717 !important;
+  }
+  
+  body.dark-theme .text-gray-800,
+  body.dark-theme .text-gray-900 {
+    color: var(--text-light) !important;
+  }
+  
+  body.dark-theme .text-gray-600,
+  body.dark-theme .text-gray-700 {
+    color: var(--text-dark) !important;
+  }
+  
+  body.dark-theme .border,
+  body.dark-theme .border-gray-100,
+  body.dark-theme .border-gray-200 {
+    border-color: #333 !important;
+  }
+  
+  /* Theme transition effects */
+  .theme-transition {
+    transition: all 0.3s ease;
   }
 }

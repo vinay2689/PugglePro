@@ -8,6 +8,7 @@ export interface ThemeOption {
   textLight: string;
   textDark: string;
   background: string;
+  isDark?: boolean;
 }
 
 export const themes: ThemeOption[] = [
@@ -63,14 +64,55 @@ export const themes: ThemeOption[] = [
     background: "#FEF2F2"
   },
   
-  // Theme 5: Midnight
+  // Theme 5: Windsurf Dark
   {
-    name: "Midnight",
+    name: "Windsurf Dark",
+    primary: "#0AC5B3",    // Teal/turquoise from the Windsurf site
+    primaryLight: "#2FDECF",
+    primaryDark: "#09A597",
+    secondary: "#F24E1E",  // Orange accent for contrast
+    accent: "#FFFFFF",     // White accent for high contrast
+    textLight: "#FFFFFF",  // White text for dark background
+    textDark: "#E6E6E6",   // Light gray for secondary text
+    background: "#0A0A0A",  // Nearly black background
+    isDark: true
+  },
+  
+  // Theme 6: Midnight Blue
+  {
+    name: "Midnight Blue",
     primary: "#4F46E5",
     primaryLight: "#A5B4FC",
     primaryDark: "#3730A3",
     secondary: "#F59E0B",
     accent: "#EC4899",
+    textLight: "#F9FAFB",
+    textDark: "#111827",
+    background: "#F8FAFC"
+  },
+  
+  // Theme 7: Dark Mode
+  {
+    name: "Dark Mode",
+    primary: "#6D28D9",    // Purple
+    primaryLight: "#A78BFA",
+    primaryDark: "#4C1D95",
+    secondary: "#FCD34D",  // Yellow
+    accent: "#EC4899",     // Pink
+    textLight: "#FFFFFF",
+    textDark: "#E5E7EB",
+    background: "#111827", // Dark blue/gray
+    isDark: true
+  },
+  
+  // Theme 8: Corporate
+  {
+    name: "Corporate",
+    primary: "#0284C7",    // Professional blue
+    primaryLight: "#7DD3FC",
+    primaryDark: "#0369A1",
+    secondary: "#A855F7",  // Purple accent
+    accent: "#84CC16",     // Green accent
     textLight: "#F9FAFB",
     textDark: "#111827",
     background: "#F8FAFC"
