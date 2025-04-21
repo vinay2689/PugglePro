@@ -36,7 +36,7 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
             >
               <div className="relative h-12 w-12 mr-3">
                 <img 
-                  src="/images/puggle-logo-square.jpg" 
+                  src="/puggle-logo-small.jpg" 
                   alt="Puggle mascot" 
                   className="h-full w-full rounded-full object-cover border-2 shadow-md"
                   style={{ borderColor: theme.primary }}
