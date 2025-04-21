@@ -48,30 +48,35 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
                   fill="none" 
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  {/* hedgehog body */}
-                  <ellipse cx="12" cy="14" rx="7" ry="6" fill="#B38B6D" />
+                  {/* echidna body - slightly darker than hedgehog */}
+                  <ellipse cx="12" cy="14" rx="6.5" ry="5.5" fill="#9E7A5C" />
                   
-                  {/* spikes */}
-                  <path d="M5 9L3 6M7 7L5.5 4M10 6L9 3M14 6L15 3M17 7L18.5 4M19 9L21 6" 
-                    stroke="#8B6C4C" strokeWidth="1.5" strokeLinecap="round" />
-                  <path d="M5 14L2 14M4 17L1 18M12 19L12 22M20 17L23 18M19 14L22 14" 
-                    stroke="#8B6C4C" strokeWidth="1.5" strokeLinecap="round" />
+                  {/* many more spikes - echidnas have denser, thinner spikes */}
+                  <path d="M5 9L3 6M7 7L5.5 4M9 6L8 3M11 5.5L10.5 2.5M13 5.5L13.5 2.5M15 6L16 3M17 7L18.5 4M19 9L21 6" 
+                    stroke="#6B563E" strokeWidth="1" strokeLinecap="round" />
+                  <path d="M5 13L2 12M4 15L1 15M6 17L3 19M9 18L8 21M12 18.5L12 21.5M15 18L16 21M18 17L21 19M20 15L23 15M19 13L22 12" 
+                    stroke="#6B563E" strokeWidth="1" strokeLinecap="round" />
                   
-                  {/* face */}
-                  <ellipse cx="9.5" cy="13" rx="1.2" ry="1.5" fill="#333333" />
-                  <ellipse cx="14.5" cy="13" rx="1.2" ry="1.5" fill="#333333" />
+                  {/* additional middle spikes for more density */}
+                  <path d="M6 11L3.5 9.5M10 8L9 5.5M14 8L15 5.5M18 11L20.5 9.5" 
+                    stroke="#6B563E" strokeWidth="1" strokeLinecap="round" />
+                  <path d="M5 16L2.5 17.5M19 16L21.5 17.5" 
+                    stroke="#6B563E" strokeWidth="1" strokeLinecap="round" />
+                  
+                  {/* face - echidnas have smaller eyes */}
+                  <ellipse cx="10" cy="13" rx="0.8" ry="1" fill="#333333" />
+                  <ellipse cx="14" cy="13" rx="0.8" ry="1" fill="#333333" />
                   
                   {/* highlight in eyes */}
-                  <circle cx="9" cy="12.5" r="0.4" fill="white" />
-                  <circle cx="14" cy="12.5" r="0.4" fill="white" />
+                  <circle cx="9.8" cy="12.7" r="0.3" fill="white" />
+                  <circle cx="13.8" cy="12.7" r="0.3" fill="white" />
                   
-                  {/* snout and nose */}
-                  <ellipse cx="12" cy="15.5" rx="2" ry="1.5" fill="#A67C52" />
-                  <circle cx="12" cy="15" r="0.7" fill="#333333" />
+                  {/* longer, more pointed snout - characteristic of echidnas */}
+                  <path d="M10 15C10 15 12 17.5 12 17.5C12 17.5 14 15 14 15" fill="#8A694C" />
+                  <ellipse cx="12" cy="16.5" rx="1.2" ry="2" fill="#8A694C" />
                   
-                  {/* smile */}
-                  <path d="M10.5 16.5C11.3 17.2 12.7 17.2 13.5 16.5" 
-                    stroke="#333333" strokeWidth="0.7" strokeLinecap="round" />
+                  {/* nose at the tip of snout */}
+                  <circle cx="12" cy="17.5" r="0.5" fill="#333333" />
                 </svg>
               </div>
               <span className="text-2xl md:text-3xl">Puggle</span>
