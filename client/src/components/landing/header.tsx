@@ -34,8 +34,15 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
               className="font-extrabold text-2xl flex items-center"
               style={{ color: theme.primary }}
             >
-              <Code className="mr-2" />
-              Puggle
+              <div className="relative h-12 w-12 mr-3">
+                <img 
+                  src="/images/puggle-logo-square.jpg" 
+                  alt="Puggle mascot" 
+                  className="h-full w-full rounded-full object-cover border-2 shadow-md"
+                  style={{ borderColor: theme.primary }}
+                />
+              </div>
+              <span className="text-2xl md:text-3xl">Puggle</span>
             </div>
           </div>
 
