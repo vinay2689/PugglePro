@@ -34,13 +34,45 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
               className="font-extrabold text-2xl flex items-center"
               style={{ color: theme.primary }}
             >
-              <div className="relative h-12 w-12 mr-3">
-                <img 
-                  src="/puggle-logo-small.jpg" 
-                  alt="Puggle mascot" 
-                  className="h-full w-full rounded-full object-cover border-2 shadow-md"
-                  style={{ borderColor: theme.primary }}
-                />
+              <div 
+                className="relative h-12 w-12 mr-3 rounded-full flex items-center justify-center shadow-lg overflow-hidden" 
+                style={{ 
+                  backgroundColor: '#f0f0f0',
+                  border: `2px solid ${theme.primary}`
+                }}
+              >
+                <svg 
+                  viewBox="0 0 24 24" 
+                  width="32" 
+                  height="32" 
+                  fill="none" 
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  {/* hedgehog body */}
+                  <ellipse cx="12" cy="14" rx="7" ry="6" fill="#B38B6D" />
+                  
+                  {/* spikes */}
+                  <path d="M5 9L3 6M7 7L5.5 4M10 6L9 3M14 6L15 3M17 7L18.5 4M19 9L21 6" 
+                    stroke="#8B6C4C" strokeWidth="1.5" strokeLinecap="round" />
+                  <path d="M5 14L2 14M4 17L1 18M12 19L12 22M20 17L23 18M19 14L22 14" 
+                    stroke="#8B6C4C" strokeWidth="1.5" strokeLinecap="round" />
+                  
+                  {/* face */}
+                  <ellipse cx="9.5" cy="13" rx="1.2" ry="1.5" fill="#333333" />
+                  <ellipse cx="14.5" cy="13" rx="1.2" ry="1.5" fill="#333333" />
+                  
+                  {/* highlight in eyes */}
+                  <circle cx="9" cy="12.5" r="0.4" fill="white" />
+                  <circle cx="14" cy="12.5" r="0.4" fill="white" />
+                  
+                  {/* snout and nose */}
+                  <ellipse cx="12" cy="15.5" rx="2" ry="1.5" fill="#A67C52" />
+                  <circle cx="12" cy="15" r="0.7" fill="#333333" />
+                  
+                  {/* smile */}
+                  <path d="M10.5 16.5C11.3 17.2 12.7 17.2 13.5 16.5" 
+                    stroke="#333333" strokeWidth="0.7" strokeLinecap="round" />
+                </svg>
               </div>
               <span className="text-2xl md:text-3xl">Puggle</span>
             </div>
