@@ -16,32 +16,47 @@ export default function ThemeSwitch() {
   const { currentTheme, changeTheme } = useContext(ThemeContext);
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon" className="bg-white rounded-full shadow-lg">
-          <Palette className="h-5 w-5" style={{ color: currentTheme.primary }} />
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuLabel>Choose Theme</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        {themes.map((theme) => (
-          <DropdownMenuItem
-            key={theme.name}
-            onClick={() => changeTheme(theme)}
-            className="flex items-center gap-2 cursor-pointer"
-          >
-            <div 
-              className="w-4 h-4 rounded-full" 
-              style={{ backgroundColor: theme.primary }}
-            />
-            <span>{theme.name}</span>
-            {currentTheme.name === theme.name && (
-              <span className="ml-auto">✓</span>
-            )}
-          </DropdownMenuItem>
-        ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <div className="relative">
+      <div className="flex flex-col items-center">
+        <span className="text-sm font-medium text-white bg-gray-800 px-3 py-1 rounded-t-md shadow-md">
+          Try 5 Themes
+        </span>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button 
+              variant="outline" 
+              size="default"
+              className="bg-white rounded-md shadow-lg border-2 flex items-center gap-2 px-4 py-2 rounded-t-none"
+              style={{ borderColor: currentTheme.primary }}
+            >
+              <Palette className="h-5 w-5" style={{ color: currentTheme.primary }} />
+              <span className="font-medium" style={{ color: currentTheme.primary }}>
+                {currentTheme.name}
+              </span>
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="w-56">
+            <DropdownMenuLabel>Select a Theme</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            {themes.map((theme) => (
+              <DropdownMenuItem
+                key={theme.name}
+                onClick={() => changeTheme(theme)}
+                className="flex items-center gap-2 cursor-pointer py-2"
+              >
+                <div 
+                  className="w-5 h-5 rounded-full border border-gray-200" 
+                  style={{ backgroundColor: theme.primary }}
+                />
+                <span className="font-medium">{theme.name}</span>
+                {currentTheme.name === theme.name && (
+                  <span className="ml-auto">✓</span>
+                )}
+              </DropdownMenuItem>
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
+    </div>
   );
 }
