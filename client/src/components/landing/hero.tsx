@@ -30,12 +30,17 @@ export default function Hero({ theme, onRequestDemo }: HeroProps) {
             transition={{ duration: 0.5 }}
           >
             <h1 className="cluely-heading text-white text-5xl md:text-7xl font-extrabold mb-4">
-              Puggle
+              Puggle AI
             </h1>
             
             <div className="cluely-glass py-3 px-6 mb-8">
               <p className="text-white text-lg md:text-xl">
-                Code, Deploy, Observe - All in One Place
+                For 
+                <span className="scrolling-text-container ml-2">
+                  <span className="scrolling-text">Coding</span>
+                  <span className="scrolling-text" style={{ animationDelay: "3s" }}>Deployment</span>
+                  <span className="scrolling-text" style={{ animationDelay: "6s" }}>Observability</span>
+                </span>
               </p>
             </div>
             
@@ -46,9 +51,6 @@ export default function Hero({ theme, onRequestDemo }: HeroProps) {
               transition={{ duration: 0.5, delay: 0.3 }}
             >
               <div className="flex flex-col space-y-3 text-left">
-                <p className="text-gray-300 font-medium">
-                  <strong className="text-white">Ask AI</strong>
-                </p>
                 <p className="text-gray-200">
                   Puggle is an invisible desktop application to let you code on any conversation.
                 </p>

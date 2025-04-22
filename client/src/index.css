@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -18,10 +20,12 @@
 @layer base {
   * {
     @apply border-border;
+    font-family: 'Inter', system-ui, sans-serif;
   }
 
   body {
-    @apply font-sans antialiased text-foreground;
+    @apply antialiased text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
     transition: background-color 0.3s ease, color 0.3s ease;
     background: linear-gradient(135deg, var(--dark-blue) 0%, var(--medium-blue) 50%, var(--dark-blue) 100%);
     background-size: 200% 200%;
@@ -299,5 +303,45 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     display: inline-block;
+  }
+  
+  /* Scrolling text animation for the hero tagline */
+  .scrolling-text-container {
+    height: 40px;
+    overflow: hidden;
+    position: relative;
+    display: inline-flex;
+    vertical-align: top;
+  }
+  
+  .scrolling-text {
+    position: absolute;
+    top: 0;
+    animation: slide-up 9s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+    width: 100%;
+    text-align: center;
+  }
+  
+  @keyframes slide-up {
+    0%, 25% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    33%, 41% {
+      transform: translateY(-40px);
+      opacity: 0;
+    }
+    42%, 66% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    74%, 82% {
+      transform: translateY(-40px);
+      opacity: 0;
+    }
+    83%, 100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 }
