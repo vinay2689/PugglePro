@@ -29,20 +29,17 @@ export default function Hero({ theme, onRequestDemo }: HeroProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-5xl md:text-7xl font-extrabold mb-4" style={{ background: "transparent", backdropFilter: "none" }}>
-              <span style={{ color: "#00E5C7" }}>Puggle AI</span>
+            <h1 className="text-5xl md:text-7xl font-extrabold mb-4">
+              <span style={{ color: "white", textShadow: "none" }}>Puggle AI</span>
             </h1>
             
             <div className="scrolling-text-box mb-2">
-              <p className="text-white text-lg md:text-xl flex items-center justify-center">
+              <p className="text-lg md:text-xl flex items-center justify-center">
                 <span className="scrolling-text-container">
-                  <span className="scrolling-text">For Coding</span>
-                  <span className="scrolling-text">For Deployment</span>
-                  <span className="scrolling-text">For Observability</span>
+                  <span className="scrolling-text" style={{ color: "white", textShadow: "none" }}>For Coding</span>
+                  <span className="scrolling-text" style={{ color: "white", textShadow: "none" }}>For Deployment</span>
+                  <span className="scrolling-text" style={{ color: "white", textShadow: "none" }}>For Observability</span>
                 </span>
-              </p>
-              <p className="text-gray-300 text-sm mt-4 text-center">
-                Puggle deeply integrates the entire development lifecycle into a single, powerful platform.
               </p>
             </div>
             

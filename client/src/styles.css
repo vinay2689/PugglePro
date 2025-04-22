@@ -1,0 +1,24 @@
+/* Additional shadow removal */
+* {
+  text-shadow: transparent 0px 0px 0px !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+  text-rendering: optimizeLegibility !important;
+}
+
+button, a, span, div, p, h1, h2, h3, h4, h5, h6, li {
+  text-shadow: transparent 0px 0px 0px !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+}
+
+nav, header, [role="tab"] {
+  text-shadow: none !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+}

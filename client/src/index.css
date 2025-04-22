@@ -378,9 +378,19 @@
     }
   }
   
-  /* Remove all shadows from navigation elements like Cluely - universal selector for ultimate shadow removal */
-  *, *::before, *::after,
-  button, a, .nav-link, [role="button"], [role="link"], [role="tab"], [role="menuitem"], 
+  /* Aggressive shadow removal */
+  *, *::before, *::after {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+    -webkit-filter: none !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+  }
+  
+  /* Completely remove all possible shadows */
+  body, header, nav, button, a, span, p, div, h1, h2, h3, h4, h5, h6, 
+  .nav-link, [role="button"], [role="link"], [role="tab"], [role="menuitem"], 
   .cluely-glass, .glass, [class*="glass"],
   [class*="nav"], [class*="menu"], [class*="header"], [class*="tab"], 
   [style*="shadow"], [class*="shadow"], [class*="elevation"] {
@@ -388,7 +398,7 @@
     text-shadow: none !important;
     filter: none !important;
     -webkit-filter: none !important;
-    background-color: transparent !important;
+    text-rendering: optimizeLegibility !important;
   }
   
   /* Extra important override for navigation tabs since they're persistent */

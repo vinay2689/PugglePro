@@ -20,6 +20,7 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Style with zero shadow properties
   const menuItemStyle = {
     boxShadow: "none !important", 
     textShadow: "none !important", 
@@ -27,7 +28,10 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
     WebkitFilter: "none !important",
     background: "transparent !important",
     backdropFilter: "none !important",
-    WebkitBackdropFilter: "none !important"
+    WebkitBackdropFilter: "none !important",
+    textRendering: "optimizeLegibility",
+    fontSmooth: "never",
+    MozOsxFontSmoothing: "grayscale"
   };
 
   return (
