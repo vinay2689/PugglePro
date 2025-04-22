@@ -75,10 +75,7 @@ export function ABTestProvider({ children }: ABTestProviderProps) {
       localStorage.setItem('abTests', JSON.stringify(newTests));
       
       // Record the new assignments to the server if available
-      apiRequest('/api/ab-tests', {
-        method: 'POST',
-        body: JSON.stringify(newTests),
-      } as RequestInit).catch(() => {
+      apiRequest('POST', '/api/ab-tests', newTests).catch(() => {
         // Silent fail if server isn't ready yet
         console.log('Failed to record AB test assignments to server');
       });
@@ -100,10 +97,10 @@ export function ABTestProvider({ children }: ABTestProviderProps) {
     console.log(`Conversion tracked for test ${testId}, variation ${test.variation}`);
     
     // Track to server if available
-    apiRequest('/api/ab-tests/conversion', {
-      method: 'POST',
-      body: JSON.stringify({ testId, variation: test.variation }),
-    } as RequestInit).catch(() => {
+    apiRequest('POST', '/api/ab-tests/conversion', { 
+      testId, 
+      variation: test.variation 
+    }).catch(() => {
       // Silent fail if server isn't ready yet
       console.log('Failed to record conversion to server');
     });
