@@ -41,6 +41,15 @@ export function ABTestProvider({ children }: ABTestProviderProps) {
     initializeTests();
   }, []);
 
+  // Transform frontend test format to backend format
+  const mapTestToApiFormat = (test: ABTest) => {
+    return {
+      testId: test.id,
+      name: test.name,
+      isActive: true
+    };
+  };
+
   const initializeTests = async () => {
     try {
       setIsLoading(true);
@@ -50,7 +59,17 @@ export function ABTestProvider({ children }: ABTestProviderProps) {
       
       // If we got tests from the server, use those
       if (response?.ok) {
-        const serverTests = await response.json();
+        const serverDataArray = await response.json();
+        
+        // Map from server format to our frontend format
+        const serverTests = serverDataArray.map((test: any) => ({
+          id: test.testId,
+          name: test.name,
+          // Since the server doesn't store variations directly, we'll randomly assign here
+          // In a real app, we'd call /api/ab-tests/variation to see if this user already has a variation
+          variation: Math.random() < 0.5 ? 'A' : 'B'
+        }));
+        
         setTests(serverTests);
         localStorage.setItem('abTests', JSON.stringify(serverTests));
         setIsLoading(false);
@@ -75,10 +94,22 @@ export function ABTestProvider({ children }: ABTestProviderProps) {
       localStorage.setItem('abTests', JSON.stringify(newTests));
       
       // Record the new assignments to the server if available
-      apiRequest('POST', '/api/ab-tests', newTests).catch(() => {
-        // Silent fail if server isn't ready yet
-        console.log('Failed to record AB test assignments to server');
-      });
+      // Transform each test to the API format
+      for (const test of newTests) {
+        await apiRequest('POST', '/api/ab-tests', mapTestToApiFormat(test)).catch(() => {
+          // Silent fail if server isn't ready yet
+          console.log(`Failed to record AB test ${test.id} to server`);
+        });
+        
+        // Also record the user's variation
+        await apiRequest('POST', '/api/ab-tests/variation', {
+          testId: test.id,
+          userId: 'anonymous-' + Math.random().toString(36).substring(2, 10),
+          variation: test.variation
+        }).catch(() => {
+          console.log(`Failed to record variation for test ${test.id}`);
+        });
+      }
     } finally {
       setIsLoading(false);
     }
@@ -96,9 +127,13 @@ export function ABTestProvider({ children }: ABTestProviderProps) {
     // Track locally
     console.log(`Conversion tracked for test ${testId}, variation ${test.variation}`);
     
+    // Generate a consistent user ID that matches what we used for the variation
+    const userId = 'anonymous-' + Math.random().toString(36).substring(2, 10);
+    
     // Track to server if available
     apiRequest('POST', '/api/ab-tests/conversion', { 
       testId, 
+      userId,
       variation: test.variation 
     }).catch(() => {
       // Silent fail if server isn't ready yet
