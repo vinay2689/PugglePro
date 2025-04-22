@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { ThemeOption } from "@/lib/color-themes";
 import { Button } from "@/components/ui/button";
 import { Code } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface HeaderProps {
   theme: ThemeOption;
@@ -23,28 +24,23 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
 
   return (
     <header
-      className={`fixed w-full bg-white bg-opacity-95 z-50 transition-all ${
-        isScrolled ? "shadow-md" : ""
+      className={`fixed w-full z-50 transition-all ${
+        isScrolled ? "backdrop-blur-md" : ""
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex justify-between items-center py-6">
           <div className="flex items-center">
             <div
-              className="font-extrabold text-2xl flex items-center"
-              style={{ color: theme.primary }}
+              className="font-bold text-xl flex items-center text-white"
             >
               <div 
-                className="relative h-12 w-12 mr-3 rounded-full flex items-center justify-center shadow-lg overflow-hidden" 
-                style={{ 
-                  backgroundColor: '#f0f0f0',
-                  border: `2px solid ${theme.primary}`
-                }}
+                className="relative h-10 w-10 mr-3 rounded-full flex items-center justify-center overflow-hidden cluely-glass" 
               >
                 <svg 
                   viewBox="0 0 24 24" 
-                  width="32" 
-                  height="32" 
+                  width="28" 
+                  height="28" 
                   fill="none" 
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -79,99 +75,89 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
                   <circle cx="12" cy="17.5" r="0.5" fill="#333333" />
                 </svg>
               </div>
-              <span className="text-2xl md:text-3xl">Puggle</span>
+              <motion.span 
+                className="text-xl md:text-2xl cluely-text-gradient"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+              >
+                Puggle
+              </motion.span>
             </div>
           </div>
 
-          <nav className="hidden md:flex space-x-10">
+          <nav className="hidden md:flex items-center space-x-8">
             <button
               onClick={() => onNavigate("features")}
-              className="text-gray-600 hover:text-primary-600 transition-colors"
-              style={{ 
-                "--tw-hover-text-opacity": 1,
-                "--tw-hover-text-color": theme.primary
-              } as React.CSSProperties}
+              className="text-gray-300 hover:text-white transition-colors text-sm"
             >
               Features
             </button>
             <button
               onClick={() => onNavigate("professional")}
-              className="text-gray-600 hover:text-primary-600 transition-colors"
-              style={{ 
-                "--tw-hover-text-opacity": 1,
-                "--tw-hover-text-color": theme.primary
-              } as React.CSSProperties}
+              className="text-gray-300 hover:text-white transition-colors text-sm"
             >
               For Professionals
             </button>
             <button
               onClick={() => onNavigate("creators")}
-              className="text-gray-600 hover:text-primary-600 transition-colors"
-              style={{ 
-                "--tw-hover-text-opacity": 1,
-                "--tw-hover-text-color": theme.primary
-              } as React.CSSProperties}
+              className="text-gray-300 hover:text-white transition-colors text-sm"
             >
               For Creators
             </button>
             <button
               onClick={() => onNavigate("benefits")}
-              className="text-gray-600 hover:text-primary-600 transition-colors"
-              style={{ 
-                "--tw-hover-text-opacity": 1,
-                "--tw-hover-text-color": theme.primary
-              } as React.CSSProperties}
+              className="text-gray-300 hover:text-white transition-colors text-sm"
             >
               Benefits
             </button>
+            
+            <button
+              onClick={() => onNavigate("request-demo")}
+              className="cluely-glass px-4 py-1.5 text-sm text-white rounded-full transition-all hover:bg-opacity-30"
+            >
+              Sign Up
+            </button>
           </nav>
 
-          <div>
-            <Button
-              onClick={() => onNavigate("request-demo")}
-              className="hidden md:inline-block text-white px-5 py-2 font-medium transition-all"
-              style={{
-                background: `linear-gradient(to right, ${theme.primary}, ${theme.primaryDark})`,
-                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-              }}
+          <button
+            className="md:hidden cluely-glass p-2 rounded-md text-gray-200"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-              Request Demo
-            </Button>
-            <button
-              className="md:hidden text-gray-600"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16m-7 6h7"
-                />
-              </svg>
-            </button>
-          </div>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1.5}
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
+          </button>
         </div>
 
         {/* Mobile menu */}
-        <div className={`md:hidden ${isMobileMenuOpen ? "block" : "hidden"}`}>
-          <div className="pt-2 pb-4 space-y-1 px-2">
+        <motion.div 
+          className={`md:hidden ${isMobileMenuOpen ? "block" : "hidden"} cluely-glass rounded-xl mt-2 overflow-hidden`}
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ 
+            height: isMobileMenuOpen ? "auto" : 0,
+            opacity: isMobileMenuOpen ? 1 : 0
+          }}
+          transition={{ duration: 0.3 }}
+        >
+          <div className="py-4 space-y-2 px-4">
             <button
               onClick={() => {
                 onNavigate("features");
                 setIsMobileMenuOpen(false);
               }}
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50"
-              style={{ 
-                "--tw-hover-text-opacity": 1,
-                "--tw-hover-text-color": theme.primary
-              } as React.CSSProperties}
+              className="block w-full text-left px-3 py-2 text-sm font-medium text-white hover:bg-white hover:bg-opacity-10 rounded-md"
             >
               Features
             </button>
@@ -180,11 +166,7 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
                 onNavigate("professional");
                 setIsMobileMenuOpen(false);
               }}
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50"
-              style={{ 
-                "--tw-hover-text-opacity": 1,
-                "--tw-hover-text-color": theme.primary
-              } as React.CSSProperties}
+              className="block w-full text-left px-3 py-2 text-sm font-medium text-white hover:bg-white hover:bg-opacity-10 rounded-md"
             >
               For Professionals
             </button>
@@ -193,11 +175,7 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
                 onNavigate("creators");
                 setIsMobileMenuOpen(false);
               }}
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50"
-              style={{ 
-                "--tw-hover-text-opacity": 1,
-                "--tw-hover-text-color": theme.primary
-              } as React.CSSProperties}
+              className="block w-full text-left px-3 py-2 text-sm font-medium text-white hover:bg-white hover:bg-opacity-10 rounded-md"
             >
               For Creators
             </button>
@@ -206,28 +184,21 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
                 onNavigate("benefits");
                 setIsMobileMenuOpen(false);
               }}
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50"
-              style={{ 
-                "--tw-hover-text-opacity": 1,
-                "--tw-hover-text-color": theme.primary
-              } as React.CSSProperties}
+              className="block w-full text-left px-3 py-2 text-sm font-medium text-white hover:bg-white hover:bg-opacity-10 rounded-md"
             >
               Benefits
             </button>
-            <Button
+            <button
               onClick={() => {
                 onNavigate("request-demo");
                 setIsMobileMenuOpen(false);
               }}
-              className="mt-3 w-full text-white"
-              style={{
-                backgroundColor: theme.primary,
-              }}
+              className="mt-3 w-full text-center px-3 py-2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-md text-sm"
             >
-              Request Demo
-            </Button>
+              Sign Up
+            </button>
           </div>
-        </div>
+        </motion.div>
       </div>
     </header>
   );
