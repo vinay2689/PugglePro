@@ -388,17 +388,19 @@
     -moz-osx-font-smoothing: grayscale !important;
   }
   
-  /* Completely remove all possible shadows */
+  /* Completely remove all possible shadows with more specific selectors and !important rules */
   body, header, nav, button, a, span, p, div, h1, h2, h3, h4, h5, h6, 
   .nav-link, [role="button"], [role="link"], [role="tab"], [role="menuitem"], 
   .cluely-glass, .glass, [class*="glass"],
   [class*="nav"], [class*="menu"], [class*="header"], [class*="tab"], 
-  [style*="shadow"], [class*="shadow"], [class*="elevation"] {
+  [style*="shadow"], [class*="shadow"], [class*="elevation"],
+  .scrolling-text, .scrolling-text-container, .scrolling-text-box * {
     box-shadow: none !important;
     text-shadow: none !important;
     filter: none !important;
     -webkit-filter: none !important;
     text-rendering: optimizeLegibility !important;
+    background-image: none !important;
   }
   
   /* Extra important override for navigation tabs since they're persistent */

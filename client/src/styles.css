@@ -1,6 +1,6 @@
-/* Additional shadow removal */
+/* Aggressive shadow removal */
 * {
-  text-shadow: transparent 0px 0px 0px !important;
+  text-shadow: none !important;
   box-shadow: none !important;
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
@@ -9,16 +9,27 @@
   text-rendering: optimizeLegibility !important;
 }
 
-button, a, span, div, p, h1, h2, h3, h4, h5, h6, li {
-  text-shadow: transparent 0px 0px 0px !important;
-  box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-  -moz-box-shadow: none !important;
-}
-
-nav, header, [role="tab"] {
+/* Extra-specific selectors to override persistent shadows */
+button, a, span, div, p, h1, h2, h3, h4, h5, h6, li, nav, header, 
+[role="tab"], [role="navigation"], .nav-link, .nav-item, 
+.scrolling-text, .scrolling-text-container, .scrolling-text-box p span {
   text-shadow: none !important;
   box-shadow: none !important;
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+  background-image: none !important;
+}
+
+/* Targeting specific navigation shadows */
+header nav *, header button span, nav [role="tab"], nav a, 
+header [role="tab"], .nav-link, .nav-item {
+  text-shadow: none !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+  background-image: none !important;
 }
