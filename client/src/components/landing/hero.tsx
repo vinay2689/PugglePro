@@ -29,16 +29,16 @@ export default function Hero({ theme, onRequestDemo }: HeroProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="cluely-heading text-white text-5xl md:text-7xl font-extrabold mb-4">
-              Puggle AI
+            <h1 className="cluely-heading text-5xl md:text-7xl font-extrabold mb-4">
+              <span className="cluely-teal-text">Puggle AI</span>
             </h1>
             
             <div className="cluely-glass py-3 px-6 mb-8">
-              <p className="text-white text-lg md:text-xl">
+              <p className="text-white text-lg md:text-xl flex items-center justify-center">
                 <span className="scrolling-text-container">
                   <span className="scrolling-text">For Coding</span>
-                  <span className="scrolling-text" style={{ animationDelay: "3s" }}>For Deployment</span>
-                  <span className="scrolling-text" style={{ animationDelay: "6s" }}>For Observability</span>
+                  <span className="scrolling-text">For Deployment</span>
+                  <span className="scrolling-text">For Observability</span>
                 </span>
               </p>
             </div>
