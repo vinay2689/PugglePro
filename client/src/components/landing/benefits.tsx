@@ -49,7 +49,7 @@ const itemVariants = {
 
 export default function Benefits({ theme }: BenefitsProps) {
   return (
-    <section id="benefits" className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section id="benefits" className="py-20 bg-black bg-opacity-90">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center max-w-3xl mx-auto mb-16"
@@ -58,16 +58,20 @@ export default function Benefits({ theme }: BenefitsProps) {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
-            Why Teams <span style={{ color: theme.primary }}>Love Puggle</span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white">
+            Why Teams <span style={{ 
+              color: "#0FF",
+              textShadow: "0 0 15px rgba(0,255,255,0.7), 0 0 25px rgba(0,255,255,0.5)",
+              fontWeight: "700"
+            }}>Love Puggle</span>
           </h2>
-          <p className="mt-4 text-xl text-gray-600">
+          <p className="mt-4 text-xl text-gray-400">
             Experience the benefits of a truly integrated development and operations platform.
           </p>
         </motion.div>
 
         <motion.div
-          className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-12 md:grid-cols-2 lg:grid-cols-3 px-4"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -76,17 +80,24 @@ export default function Benefits({ theme }: BenefitsProps) {
           {benefits.map((benefit, index) => (
             <motion.div
               key={index}
-              className="bg-white rounded-xl p-8 shadow-md border border-gray-100 hover:shadow-lg transition-all transform hover:-translate-y-2"
+              className="bg-gray-900 bg-opacity-90 rounded-xl p-8 shadow-md hover:shadow-xl border border-gray-800 transition-all transform hover:-translate-y-2"
               variants={itemVariants}
+              style={{
+                backdropFilter: "blur(10px)",
+                WebkitBackdropFilter: "blur(10px)"
+              }}
             >
               <div
                 className="h-14 w-14 rounded-lg flex items-center justify-center mb-6"
-                style={{ backgroundColor: theme.primary }}
+                style={{ 
+                  backgroundColor: "rgba(0,255,255,0.1)", 
+                  boxShadow: "0 0 15px rgba(0,255,255,0.2)"
+                }}
               >
                 {benefit.icon}
               </div>
-              <h3 className="text-xl font-bold mb-3">{benefit.title}</h3>
-              <p className="text-gray-600">{benefit.description}</p>
+              <h3 className="text-xl font-bold mb-3 text-white">{benefit.title}</h3>
+              <p className="text-gray-400">{benefit.description}</p>
             </motion.div>
           ))}
         </motion.div>
