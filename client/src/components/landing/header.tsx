@@ -27,7 +27,7 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
       className={`fixed w-full z-50 transition-all ${
         isScrolled ? "backdrop-blur-md bg-opacity-30" : ""
       }`}
-      style={{ boxShadow: "none" }}
+      style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important" }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-6">
@@ -87,49 +87,50 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
             </div>
           </div>
 
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-8" 
+            style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important" }}>
             <button
               onClick={() => onNavigate("features")}
-              className="text-gray-300 hover:text-white transition-colors text-sm"
-              style={{ boxShadow: "none", textShadow: "none" }}
+              className="text-gray-300 hover:text-white transition-colors text-sm no-shadow"
+              style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important" }}
             >
               Features
             </button>
             <button
               onClick={() => onNavigate("professional")}
-              className="text-gray-300 hover:text-white transition-colors text-sm"
-              style={{ boxShadow: "none", textShadow: "none" }}
+              className="text-gray-300 hover:text-white transition-colors text-sm no-shadow"
+              style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important" }}
             >
               For Professionals
             </button>
             <button
               onClick={() => onNavigate("creators")}
-              className="text-gray-300 hover:text-white transition-colors text-sm"
-              style={{ boxShadow: "none", textShadow: "none" }}
+              className="text-gray-300 hover:text-white transition-colors text-sm no-shadow"
+              style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important" }}
             >
               For Creators
             </button>
             <button
               onClick={() => onNavigate("benefits")}
-              className="text-gray-300 hover:text-white transition-colors text-sm"
-              style={{ boxShadow: "none", textShadow: "none" }}
+              className="text-gray-300 hover:text-white transition-colors text-sm no-shadow"
+              style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important" }}
             >
               Benefits
             </button>
             
             <button
               onClick={() => onNavigate("request-demo")}
-              className="cluely-glass px-4 py-1.5 text-sm text-white rounded-full transition-all hover:bg-opacity-30"
-              style={{ boxShadow: "none", textShadow: "none" }}
+              className="cluely-glass px-4 py-1.5 text-sm text-white rounded-full transition-all hover:bg-opacity-30 no-shadow"
+              style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important" }}
             >
               Sign Up
             </button>
           </nav>
 
           <button
-            className="md:hidden cluely-glass p-2 rounded-md text-gray-200"
+            className="md:hidden cluely-glass p-2 rounded-md text-gray-200 no-shadow"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            style={{ boxShadow: "none", textShadow: "none" }}
+            style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important" }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -137,6 +138,7 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
+              style={{ filter: "none !important" }}
             >
               <path
                 strokeLinecap="round"
@@ -158,14 +160,14 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
           }}
           transition={{ duration: 0.3 }}
         >
-          <div className="py-4 space-y-2 px-4">
+          <div className="py-4 space-y-2 px-4" style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important" }}>
             <button
               onClick={() => {
                 onNavigate("features");
                 setIsMobileMenuOpen(false);
               }}
-              className="block w-full text-left px-3 py-2 text-sm font-medium text-white hover:bg-white hover:bg-opacity-10 rounded-md"
-              style={{ boxShadow: "none", textShadow: "none" }}
+              className="block w-full text-left px-3 py-2 text-sm font-medium text-white hover:bg-white hover:bg-opacity-10 rounded-md no-shadow"
+              style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important" }}
             >
               Features
             </button>
@@ -174,8 +176,8 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
                 onNavigate("professional");
                 setIsMobileMenuOpen(false);
               }}
-              className="block w-full text-left px-3 py-2 text-sm font-medium text-white hover:bg-white hover:bg-opacity-10 rounded-md"
-              style={{ boxShadow: "none", textShadow: "none" }}
+              className="block w-full text-left px-3 py-2 text-sm font-medium text-white hover:bg-white hover:bg-opacity-10 rounded-md no-shadow"
+              style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important" }}
             >
               For Professionals
             </button>
@@ -184,8 +186,8 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
                 onNavigate("creators");
                 setIsMobileMenuOpen(false);
               }}
-              className="block w-full text-left px-3 py-2 text-sm font-medium text-white hover:bg-white hover:bg-opacity-10 rounded-md"
-              style={{ boxShadow: "none", textShadow: "none" }}
+              className="block w-full text-left px-3 py-2 text-sm font-medium text-white hover:bg-white hover:bg-opacity-10 rounded-md no-shadow"
+              style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important" }}
             >
               For Creators
             </button>
@@ -194,8 +196,8 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
                 onNavigate("benefits");
                 setIsMobileMenuOpen(false);
               }}
-              className="block w-full text-left px-3 py-2 text-sm font-medium text-white hover:bg-white hover:bg-opacity-10 rounded-md"
-              style={{ boxShadow: "none", textShadow: "none" }}
+              className="block w-full text-left px-3 py-2 text-sm font-medium text-white hover:bg-white hover:bg-opacity-10 rounded-md no-shadow"
+              style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important" }}
             >
               Benefits
             </button>
@@ -204,8 +206,8 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
                 onNavigate("request-demo");
                 setIsMobileMenuOpen(false);
               }}
-              className="mt-3 w-full text-center px-3 py-2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-md text-sm"
-              style={{ boxShadow: "none", textShadow: "none" }}
+              className="mt-3 w-full text-center px-3 py-2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-md text-sm no-shadow"
+              style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important" }}
             >
               Sign Up
             </button>

@@ -312,13 +312,13 @@
     color: var(--teal-color);
   }
   
-  /* Scrolling text animation for the hero tagline */
+  /* Improved scrolling text animation for the hero tagline */
   .scrolling-text-container {
     height: 30px;
     overflow: hidden;
     position: relative;
     display: inline-block;
-    min-width: 160px;
+    min-width: 180px;
     text-align: center;
   }
   
@@ -327,11 +327,21 @@
     left: 0;
     right: 0;
     top: 0;
-    animation: slide 9s ease-in-out infinite;
-    opacity: 0;
     width: 100%;
+    color: var(--teal-color);
+    font-weight: 600;
+    
+    /* Ensure text is initially invisible */
+    opacity: 0;
+    
+    /* Simple animation pattern */
+    animation-name: scrollText;
+    animation-duration: 9s;
+    animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+    animation-iteration-count: infinite;
   }
   
+  /* Set specific delays for each item */
   .scrolling-text:nth-child(1) {
     animation-delay: 0s;
   }
@@ -344,22 +354,19 @@
     animation-delay: 6s;
   }
   
-  @keyframes slide {
-    0%, 5% {
+  /* Animation keyframes with clearer visibility transitions */
+  @keyframes scrollText {
+    0%, 2% {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(10px);
     }
-    10%, 25% {
+    10%, 30% {
       opacity: 1;
       transform: translateY(0);
     }
-    30%, 35% {
+    38%, 100% {
       opacity: 0;
-      transform: translateY(-20px);
-    }
-    100% {
-      opacity: 0;
-      transform: translateY(-20px);
+      transform: translateY(-10px);
     }
   }
   
