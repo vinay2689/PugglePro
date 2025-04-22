@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { ThemeOption } from "@/lib/color-themes";
 import { Button } from "@/components/ui/button";
+import { useVariation, useTrackConversion } from "@/hooks/use-variation";
+import { useABTest } from "@/context/ab-test-context";
 
 interface HeroProps {
   theme: ThemeOption;
@@ -8,6 +11,14 @@ interface HeroProps {
 }
 
 export default function Hero({ theme, onRequestDemo }: HeroProps) {
+  // State to track if the demo button was clicked
+  const [demoClicked, setDemoClicked] = useState(false);
+  
+  // Use A/B test for CTA button text
+  const { isA } = useVariation('cta-button');
+  
+  // Track conversion when demo button is clicked
+  useTrackConversion('cta-button', demoClicked);
   return (
     <section className="min-h-screen flex items-center justify-center">
       <div className="cluely-container relative">
@@ -70,10 +81,14 @@ export default function Hero({ theme, onRequestDemo }: HeroProps) {
               transition={{ duration: 0.5, delay: 0.4 }}
             >
               <button 
-                onClick={onRequestDemo}
+                onClick={() => {
+                  // Track the CTA button click as a conversion
+                  setDemoClicked(true);
+                  onRequestDemo();
+                }}
                 className="cluely-button cluely-button-primary"
               >
-                Request a Demo
+                {isA ? "Request a Demo" : "Try Puggle Now"}
               </button>
               
               <button 
