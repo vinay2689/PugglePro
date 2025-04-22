@@ -29,8 +29,8 @@ export default function Hero({ theme, onRequestDemo }: HeroProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="cluely-heading text-5xl md:text-7xl font-extrabold mb-4">
-              <span className="cluely-teal-text">Puggle AI</span>
+            <h1 className="text-5xl md:text-7xl font-extrabold mb-4" style={{ background: "transparent", backdropFilter: "none" }}>
+              <span style={{ color: "#00E5C7" }}>Puggle AI</span>
             </h1>
             
             <div className="scrolling-text-box mb-2">
@@ -69,32 +69,7 @@ export default function Hero({ theme, onRequestDemo }: HeroProps) {
             </motion.div>
           </motion.div>
           
-          {/* Feature bullets */}
-          <motion.div
-            className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 w-full"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-          >
-            <div className="p-4 text-center">
-              <p className="text-gray-100 text-sm font-medium">
-                <span className="inline-block w-6 h-6 bg-blue-500 rounded-full mr-2 align-middle"></span>
-                Seamless Integration
-              </p>
-            </div>
-            <div className="p-4 text-center">
-              <p className="text-gray-100 text-sm font-medium">
-                <span className="inline-block w-6 h-6 bg-purple-500 rounded-full mr-2 align-middle"></span>
-                AI-Powered Workflows
-              </p>
-            </div>
-            <div className="p-4 text-center">
-              <p className="text-gray-100 text-sm font-medium">
-                <span className="inline-block w-6 h-6 bg-green-500 rounded-full mr-2 align-middle"></span>
-                Real-time Collaboration
-              </p>
-            </div>
-          </motion.div>
+          {/* No feature bullets */}
           
           {/* Bottom floating element */}
           <motion.div

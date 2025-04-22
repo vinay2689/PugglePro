@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import { ThemeOption } from "@/lib/color-themes";
-import { Button } from "@/components/ui/button";
-import { Code } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface HeaderProps {
@@ -22,21 +20,31 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const menuItemStyle = {
+    boxShadow: "none !important", 
+    textShadow: "none !important", 
+    filter: "none !important", 
+    WebkitFilter: "none !important",
+    background: "transparent !important",
+    backdropFilter: "none !important",
+    WebkitBackdropFilter: "none !important"
+  };
+
   return (
     <header
-      className={`fixed w-full z-50 transition-all ${
-        isScrolled ? "backdrop-blur-md bg-opacity-30" : ""
-      }`}
-      style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important" }}
+      className="fixed w-full z-50 transition-all"
+      style={menuItemStyle}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-6">
-          <div className="flex items-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8" style={menuItemStyle}>
+        <div className="flex justify-between items-center py-6" style={menuItemStyle}>
+          <div className="flex items-center" style={menuItemStyle}>
             <div
               className="font-bold text-xl flex items-center text-white"
+              style={menuItemStyle}
             >
               <div 
-                className="relative h-10 w-10 mr-3 rounded-full flex items-center justify-center overflow-hidden cluely-glass" 
+                className="relative h-10 w-10 mr-3 rounded-full flex items-center justify-center overflow-hidden" 
+                style={{ ...menuItemStyle, border: "1px solid rgba(255,255,255,0.1)" }}
               >
                 <svg 
                   viewBox="0 0 24 24" 
@@ -44,6 +52,7 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
                   height="28" 
                   fill="none" 
                   xmlns="http://www.w3.org/2000/svg"
+                  style={menuItemStyle}
                 >
                   {/* echidna body - slightly darker than hedgehog */}
                   <ellipse cx="12" cy="14" rx="6.5" ry="5.5" fill="#9E7A5C" />
@@ -77,7 +86,7 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
                 </svg>
               </div>
               <motion.span 
-                className="text-xl md:text-2xl cluely-text-gradient"
+                style={{ color: "#00E5C7", ...menuItemStyle }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
@@ -87,50 +96,49 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
             </div>
           </div>
 
-          <nav className="hidden md:flex items-center space-x-8" 
-            style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important", background: "transparent !important" }}>
+          <nav className="hidden md:flex items-center space-x-8" style={menuItemStyle}>
             <button
               onClick={() => onNavigate("features")}
-              className="text-gray-300 hover:text-white transition-colors text-sm no-shadow"
-              style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important", background: "transparent !important" }}
+              className="text-gray-300 hover:text-white transition-colors text-sm"
+              style={menuItemStyle}
             >
-              Features
+              <span style={menuItemStyle}>Features</span>
             </button>
             <button
               onClick={() => onNavigate("professional")}
-              className="text-gray-300 hover:text-white transition-colors text-sm no-shadow"
-              style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important", background: "transparent !important" }}
+              className="text-gray-300 hover:text-white transition-colors text-sm"
+              style={menuItemStyle}
             >
-              For Professionals
+              <span style={menuItemStyle}>For Professionals</span>
             </button>
             <button
               onClick={() => onNavigate("creators")}
-              className="text-gray-300 hover:text-white transition-colors text-sm no-shadow"
-              style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important", background: "transparent !important" }}
+              className="text-gray-300 hover:text-white transition-colors text-sm"
+              style={menuItemStyle}
             >
-              For Creators
+              <span style={menuItemStyle}>For Creators</span>
             </button>
             <button
               onClick={() => onNavigate("benefits")}
-              className="text-gray-300 hover:text-white transition-colors text-sm no-shadow"
-              style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important", background: "transparent !important" }}
+              className="text-gray-300 hover:text-white transition-colors text-sm"
+              style={menuItemStyle}
             >
-              Benefits
+              <span style={menuItemStyle}>Benefits</span>
             </button>
             
             <button
               onClick={() => onNavigate("request-demo")}
-              className="px-4 py-1.5 text-sm text-white rounded-full transition-all hover:bg-opacity-30 no-shadow"
-              style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important", background: "transparent !important" }}
+              className="px-4 py-1.5 text-sm text-white rounded-full transition-all hover:bg-opacity-30"
+              style={{...menuItemStyle, border: "1px solid rgba(255,255,255,0.1)"}}
             >
-              Sign Up
+              <span style={menuItemStyle}>Sign Up</span>
             </button>
           </nav>
 
           <button
-            className="md:hidden cluely-glass p-2 rounded-md text-gray-200 no-shadow"
+            className="md:hidden p-2 rounded-md text-gray-200"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important" }}
+            style={{...menuItemStyle, border: "1px solid rgba(255,255,255,0.1)"}}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -138,7 +146,7 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              style={{ filter: "none !important" }}
+              style={menuItemStyle}
             >
               <path
                 strokeLinecap="round"
@@ -152,64 +160,65 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
 
         {/* Mobile menu */}
         <motion.div 
-          className={`md:hidden ${isMobileMenuOpen ? "block" : "hidden"} cluely-glass rounded-xl mt-2 overflow-hidden`}
+          className={`md:hidden ${isMobileMenuOpen ? "block" : "hidden"} rounded-xl mt-2 overflow-hidden`}
           initial={{ height: 0, opacity: 0 }}
           animate={{ 
             height: isMobileMenuOpen ? "auto" : 0,
             opacity: isMobileMenuOpen ? 1 : 0
           }}
           transition={{ duration: 0.3 }}
+          style={{...menuItemStyle, border: "1px solid rgba(255,255,255,0.1)"}}
         >
-          <div className="py-4 space-y-2 px-4" style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important" }}>
+          <div className="py-4 space-y-2 px-4" style={menuItemStyle}>
             <button
               onClick={() => {
                 onNavigate("features");
                 setIsMobileMenuOpen(false);
               }}
-              className="block w-full text-left px-3 py-2 text-sm font-medium text-white hover:bg-white hover:bg-opacity-10 rounded-md no-shadow"
-              style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important" }}
+              className="block w-full text-left px-3 py-2 text-sm font-medium text-white hover:bg-white hover:bg-opacity-10 rounded-md"
+              style={menuItemStyle}
             >
-              Features
+              <span style={menuItemStyle}>Features</span>
             </button>
             <button
               onClick={() => {
                 onNavigate("professional");
                 setIsMobileMenuOpen(false);
               }}
-              className="block w-full text-left px-3 py-2 text-sm font-medium text-white hover:bg-white hover:bg-opacity-10 rounded-md no-shadow"
-              style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important" }}
+              className="block w-full text-left px-3 py-2 text-sm font-medium text-white hover:bg-white hover:bg-opacity-10 rounded-md"
+              style={menuItemStyle}
             >
-              For Professionals
+              <span style={menuItemStyle}>For Professionals</span>
             </button>
             <button
               onClick={() => {
                 onNavigate("creators");
                 setIsMobileMenuOpen(false);
               }}
-              className="block w-full text-left px-3 py-2 text-sm font-medium text-white hover:bg-white hover:bg-opacity-10 rounded-md no-shadow"
-              style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important" }}
+              className="block w-full text-left px-3 py-2 text-sm font-medium text-white hover:bg-white hover:bg-opacity-10 rounded-md"
+              style={menuItemStyle}
             >
-              For Creators
+              <span style={menuItemStyle}>For Creators</span>
             </button>
             <button
               onClick={() => {
                 onNavigate("benefits");
                 setIsMobileMenuOpen(false);
               }}
-              className="block w-full text-left px-3 py-2 text-sm font-medium text-white hover:bg-white hover:bg-opacity-10 rounded-md no-shadow"
-              style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important" }}
+              className="block w-full text-left px-3 py-2 text-sm font-medium text-white hover:bg-white hover:bg-opacity-10 rounded-md"
+              style={menuItemStyle}
             >
-              Benefits
+              <span style={menuItemStyle}>Benefits</span>
             </button>
             <button
               onClick={() => {
                 onNavigate("request-demo");
                 setIsMobileMenuOpen(false);
               }}
-              className="mt-3 w-full text-center px-3 py-2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-md text-sm no-shadow"
-              style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important" }}
+              className="mt-3 w-full text-center px-3 py-2 text-white rounded-md text-sm"
+              style={{...menuItemStyle, border: "1px solid rgba(255,255,255,0.1)"}}
             >
-              Sign Up
+              <span style={menuItemStyle}>Sign Up</span>
             </button>
           </div>
         </motion.div>
