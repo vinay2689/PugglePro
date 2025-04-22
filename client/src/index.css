@@ -3,14 +3,16 @@
 @tailwind utilities;
 
 :root {
-  --primary-color: #3B82F6;
-  --primary-light: #93C5FD;
-  --primary-dark: #1E40AF;
-  --secondary-color: #FBBF24;
-  --accent-color: #10B981;
+  --primary-color: #4F7CFF;
+  --primary-light: #6D94FF;
+  --primary-dark: #3E63DC;
+  --secondary-color: #6D6AFF;
+  --accent-color: #7C3AED;
   --text-light: #F9FAFB;
   --text-dark: #111827;
-  --background: #F9FAFB;
+  --background: #101935;
+  --dark-blue: #0A1126;
+  --medium-blue: #152145;
 }
 
 @layer base {
@@ -19,8 +21,18 @@
   }
 
   body {
-    @apply font-sans antialiased bg-background text-foreground;
+    @apply font-sans antialiased text-foreground;
     transition: background-color 0.3s ease, color 0.3s ease;
+    background: linear-gradient(135deg, var(--dark-blue) 0%, var(--medium-blue) 50%, var(--dark-blue) 100%);
+    background-size: 200% 200%;
+    animation: gradientBackground 15s ease infinite;
+    min-height: 100vh;
+  }
+
+  @keyframes gradientBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
   
   /* Custom dark theme styles - applies to all elements with proper contrast */
@@ -195,5 +207,97 @@
   /* Theme transition effects */
   .theme-transition {
     transition: all 0.3s ease;
+  }
+  
+  /* Cluely style classes */
+  .cluely-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .cluely-heading {
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    backdrop-filter: blur(10px);
+  }
+  
+  .cluely-subheading {
+    font-size: 1.5rem;
+    text-align: center;
+    opacity: 0.8;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .cluely-card {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .cluely-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+  
+  .cluely-button {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .cluely-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+  }
+  
+  .cluely-button-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-light);
+  }
+  
+  .cluely-button-primary:hover {
+    background-color: var(--primary-light);
+  }
+  
+  .cluely-glass {
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .cluely-text-gradient {
+    background: linear-gradient(to right, var(--primary-light), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
   }
 }
