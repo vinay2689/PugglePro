@@ -58,39 +58,39 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
                   xmlns="http://www.w3.org/2000/svg"
                   style={menuItemStyle}
                 >
-                  {/* echidna body - slightly darker than hedgehog */}
-                  <ellipse cx="12" cy="14" rx="6.5" ry="5.5" fill="#9E7A5C" />
+                  {/* Abstract modern logo mark */}
+                  <defs>
+                    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#0FF" />
+                      <stop offset="100%" stopColor="#00E5C7" />
+                    </linearGradient>
+                  </defs>
                   
-                  {/* many more spikes - echidnas have denser, thinner spikes */}
-                  <path d="M5 9L3 6M7 7L5.5 4M9 6L8 3M11 5.5L10.5 2.5M13 5.5L13.5 2.5M15 6L16 3M17 7L18.5 4M19 9L21 6" 
-                    stroke="#6B563E" strokeWidth="1" strokeLinecap="round" />
-                  <path d="M5 13L2 12M4 15L1 15M6 17L3 19M9 18L8 21M12 18.5L12 21.5M15 18L16 21M18 17L21 19M20 15L23 15M19 13L22 12" 
-                    stroke="#6B563E" strokeWidth="1" strokeLinecap="round" />
+                  {/* Main geometric shapes */}
+                  <path d="M12 4L20 12L12 20L4 12L12 4Z" 
+                    stroke="url(#logoGradient)" 
+                    strokeWidth="1.5" 
+                    fill="rgba(0,255,255,0.1)" />
                   
-                  {/* additional middle spikes for more density */}
-                  <path d="M6 11L3.5 9.5M10 8L9 5.5M14 8L15 5.5M18 11L20.5 9.5" 
-                    stroke="#6B563E" strokeWidth="1" strokeLinecap="round" />
-                  <path d="M5 16L2.5 17.5M19 16L21.5 17.5" 
-                    stroke="#6B563E" strokeWidth="1" strokeLinecap="round" />
+                  <circle cx="12" cy="12" r="4" 
+                    stroke="url(#logoGradient)" 
+                    strokeWidth="1.5" 
+                    fill="transparent" />
                   
-                  {/* face - echidnas have smaller eyes */}
-                  <ellipse cx="10" cy="13" rx="0.8" ry="1" fill="#333333" />
-                  <ellipse cx="14" cy="13" rx="0.8" ry="1" fill="#333333" />
-                  
-                  {/* highlight in eyes */}
-                  <circle cx="9.8" cy="12.7" r="0.3" fill="white" />
-                  <circle cx="13.8" cy="12.7" r="0.3" fill="white" />
-                  
-                  {/* longer, more pointed snout - characteristic of echidnas */}
-                  <path d="M10 15C10 15 12 17.5 12 17.5C12 17.5 14 15 14 15" fill="#8A694C" />
-                  <ellipse cx="12" cy="16.5" rx="1.2" ry="2" fill="#8A694C" />
-                  
-                  {/* nose at the tip of snout */}
-                  <circle cx="12" cy="17.5" r="0.5" fill="#333333" />
+                  {/* Abstract intersecting lines */}
+                  <path d="M7 7L17 17M7 17L17 7" 
+                    stroke="url(#logoGradient)" 
+                    strokeWidth="1" 
+                    strokeLinecap="round" />
                 </svg>
               </div>
               <motion.span 
-                style={{ color: "#00E5C7", ...menuItemStyle }}
+                style={{ background: "linear-gradient(to right, #0FF, #00E5C7)", 
+                  WebkitBackgroundClip: "text", 
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                  color: "transparent",
+                  ...menuItemStyle }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
