@@ -49,7 +49,7 @@ const itemVariants = {
 
 export default function Features({ theme }: FeaturesProps) {
   return (
-    <section id="features" className="py-20 bg-white">
+    <section id="features" className="py-20 bg-black bg-opacity-90">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           className="text-center max-w-3xl mx-auto"
@@ -58,13 +58,13 @@ export default function Features({ theme }: FeaturesProps) {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white">
             <span style={{ 
               color: "#0FF",
-              textShadow: "0 0 10px rgba(0,255,255,0.5)"
+              textShadow: "0 0 15px rgba(0,255,255,0.7)"
             }}>Powerful features</span>
           </h2>
-          <p className="mt-4 text-xl text-gray-600">
+          <p className="mt-4 text-xl text-gray-400">
             Enhance your workflow with our comprehensive suite of tools.
           </p>
         </motion.div>
@@ -79,19 +79,24 @@ export default function Features({ theme }: FeaturesProps) {
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              className="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition-all transform hover:-translate-y-2"
+              className="bg-gray-900 bg-opacity-90 rounded-xl p-8 shadow-md hover:shadow-xl border border-gray-800 transition-all transform hover:-translate-y-2"
               variants={itemVariants}
+              style={{
+                backdropFilter: "blur(10px)",
+                WebkitBackdropFilter: "blur(10px)"
+              }}
             >
               <div
                 className="h-12 w-12 rounded-lg flex items-center justify-center mb-5"
                 style={{ 
-                  backgroundColor: `${theme.primaryLight}20`, 
+                  backgroundColor: "rgba(0,255,255,0.1)", 
+                  boxShadow: "0 0 15px rgba(0,255,255,0.2)"
                 }}
               >
-                <div style={{ color: theme.primary }}>{feature.icon}</div>
+                <div style={{ color: "#0FF" }}>{feature.icon}</div>
               </div>
-              <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-              <p className="text-gray-600">{feature.description}</p>
+              <h3 className="text-xl font-bold mb-3 text-white">{feature.title}</h3>
+              <p className="text-gray-400">{feature.description}</p>
             </motion.div>
           ))}
         </motion.div>

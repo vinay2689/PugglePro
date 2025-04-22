@@ -32,7 +32,8 @@ export default function Hero({ theme, onRequestDemo }: HeroProps) {
             <h1 className="text-5xl md:text-7xl font-extrabold mb-4">
               <span style={{ 
                 color: "#0FF",
-                textShadow: "0 0 10px rgba(0,255,255,0.5)",
+                textShadow: "0 0 15px rgba(0,255,255,0.7), 0 0 25px rgba(0,255,255,0.5)",
+                fontWeight: "700",
               }}>Puggle AI</span>
             </h1>
             
@@ -41,15 +42,18 @@ export default function Hero({ theme, onRequestDemo }: HeroProps) {
                 <span className="scrolling-text-container">
                   <span className="scrolling-text" style={{ 
                     color: "#0FF",
-                    textShadow: "0 0 10px rgba(0,255,255,0.5)",
+                    textShadow: "0 0 15px rgba(0,255,255,0.7), 0 0 25px rgba(0,255,255,0.5)",
+                    fontWeight: "600",
                   }}>For Coding</span>
                   <span className="scrolling-text" style={{ 
                     color: "#0FF",
-                    textShadow: "0 0 10px rgba(0,255,255,0.5)",
+                    textShadow: "0 0 15px rgba(0,255,255,0.7), 0 0 25px rgba(0,255,255,0.5)",
+                    fontWeight: "600",
                   }}>For Deployment</span>
                   <span className="scrolling-text" style={{ 
                     color: "#0FF",
-                    textShadow: "0 0 10px rgba(0,255,255,0.5)",
+                    textShadow: "0 0 15px rgba(0,255,255,0.7), 0 0 25px rgba(0,255,255,0.5)",
+                    fontWeight: "600",
                   }}>For Observability</span>
                 </span>
               </p>
