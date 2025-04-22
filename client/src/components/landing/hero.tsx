@@ -33,13 +33,16 @@ export default function Hero({ theme, onRequestDemo }: HeroProps) {
               <span className="cluely-teal-text">Puggle AI</span>
             </h1>
             
-            <div className="cluely-glass py-3 px-6 mb-8">
+            <div className="scrolling-text-box mb-2">
               <p className="text-white text-lg md:text-xl flex items-center justify-center">
                 <span className="scrolling-text-container">
                   <span className="scrolling-text">For Coding</span>
                   <span className="scrolling-text">For Deployment</span>
                   <span className="scrolling-text">For Observability</span>
                 </span>
+              </p>
+              <p className="text-gray-300 text-sm mt-4 text-center">
+                Puggle deeply integrates the entire development lifecycle into a single, powerful platform.
               </p>
             </div>
             
@@ -73,19 +76,19 @@ export default function Hero({ theme, onRequestDemo }: HeroProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            <div className="cluely-glass p-4 text-center">
+            <div className="p-4 text-center">
               <p className="text-gray-100 text-sm font-medium">
                 <span className="inline-block w-6 h-6 bg-blue-500 rounded-full mr-2 align-middle"></span>
                 Seamless Integration
               </p>
             </div>
-            <div className="cluely-glass p-4 text-center">
+            <div className="p-4 text-center">
               <p className="text-gray-100 text-sm font-medium">
                 <span className="inline-block w-6 h-6 bg-purple-500 rounded-full mr-2 align-middle"></span>
                 AI-Powered Workflows
               </p>
             </div>
-            <div className="cluely-glass p-4 text-center">
+            <div className="p-4 text-center">
               <p className="text-gray-100 text-sm font-medium">
                 <span className="inline-block w-6 h-6 bg-green-500 rounded-full mr-2 align-middle"></span>
                 Real-time Collaboration

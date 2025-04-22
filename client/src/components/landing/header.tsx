@@ -88,40 +88,40 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
           </div>
 
           <nav className="hidden md:flex items-center space-x-8" 
-            style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important" }}>
+            style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important", background: "transparent !important" }}>
             <button
               onClick={() => onNavigate("features")}
               className="text-gray-300 hover:text-white transition-colors text-sm no-shadow"
-              style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important" }}
+              style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important", background: "transparent !important" }}
             >
               Features
             </button>
             <button
               onClick={() => onNavigate("professional")}
               className="text-gray-300 hover:text-white transition-colors text-sm no-shadow"
-              style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important" }}
+              style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important", background: "transparent !important" }}
             >
               For Professionals
             </button>
             <button
               onClick={() => onNavigate("creators")}
               className="text-gray-300 hover:text-white transition-colors text-sm no-shadow"
-              style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important" }}
+              style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important", background: "transparent !important" }}
             >
               For Creators
             </button>
             <button
               onClick={() => onNavigate("benefits")}
               className="text-gray-300 hover:text-white transition-colors text-sm no-shadow"
-              style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important" }}
+              style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important", background: "transparent !important" }}
             >
               Benefits
             </button>
             
             <button
               onClick={() => onNavigate("request-demo")}
-              className="cluely-glass px-4 py-1.5 text-sm text-white rounded-full transition-all hover:bg-opacity-30 no-shadow"
-              style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important" }}
+              className="px-4 py-1.5 text-sm text-white rounded-full transition-all hover:bg-opacity-30 no-shadow"
+              style={{ boxShadow: "none !important", textShadow: "none !important", filter: "none !important", background: "transparent !important" }}
             >
               Sign Up
             </button>
