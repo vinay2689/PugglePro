@@ -295,6 +295,8 @@
     backdrop-filter: blur(10px);
     border-radius: 0.75rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: none;
+    text-shadow: none;
   }
   
   .cluely-text-gradient {
@@ -343,5 +345,11 @@
       transform: translateY(0);
       opacity: 1;
     }
+  }
+  
+  /* Remove all shadows from navigation elements like Cluely */
+  button, a, .nav-link, [role="button"], [role="link"], [role="tab"], [role="menuitem"], .cluely-glass, .glass, [class*="glass"] {
+    box-shadow: none !important;
+    text-shadow: none !important;
   }
 }

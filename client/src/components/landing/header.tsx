@@ -25,8 +25,9 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
   return (
     <header
       className={`fixed w-full z-50 transition-all ${
-        isScrolled ? "backdrop-blur-md" : ""
+        isScrolled ? "backdrop-blur-md bg-opacity-30" : ""
       }`}
+      style={{ boxShadow: "none" }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-6">
@@ -90,24 +91,28 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
             <button
               onClick={() => onNavigate("features")}
               className="text-gray-300 hover:text-white transition-colors text-sm"
+              style={{ boxShadow: "none", textShadow: "none" }}
             >
               Features
             </button>
             <button
               onClick={() => onNavigate("professional")}
               className="text-gray-300 hover:text-white transition-colors text-sm"
+              style={{ boxShadow: "none", textShadow: "none" }}
             >
               For Professionals
             </button>
             <button
               onClick={() => onNavigate("creators")}
               className="text-gray-300 hover:text-white transition-colors text-sm"
+              style={{ boxShadow: "none", textShadow: "none" }}
             >
               For Creators
             </button>
             <button
               onClick={() => onNavigate("benefits")}
               className="text-gray-300 hover:text-white transition-colors text-sm"
+              style={{ boxShadow: "none", textShadow: "none" }}
             >
               Benefits
             </button>
@@ -115,6 +120,7 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
             <button
               onClick={() => onNavigate("request-demo")}
               className="cluely-glass px-4 py-1.5 text-sm text-white rounded-full transition-all hover:bg-opacity-30"
+              style={{ boxShadow: "none", textShadow: "none" }}
             >
               Sign Up
             </button>
@@ -123,6 +129,7 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
           <button
             className="md:hidden cluely-glass p-2 rounded-md text-gray-200"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            style={{ boxShadow: "none", textShadow: "none" }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -158,6 +165,7 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
                 setIsMobileMenuOpen(false);
               }}
               className="block w-full text-left px-3 py-2 text-sm font-medium text-white hover:bg-white hover:bg-opacity-10 rounded-md"
+              style={{ boxShadow: "none", textShadow: "none" }}
             >
               Features
             </button>
@@ -167,6 +175,7 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
                 setIsMobileMenuOpen(false);
               }}
               className="block w-full text-left px-3 py-2 text-sm font-medium text-white hover:bg-white hover:bg-opacity-10 rounded-md"
+              style={{ boxShadow: "none", textShadow: "none" }}
             >
               For Professionals
             </button>
@@ -176,6 +185,7 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
                 setIsMobileMenuOpen(false);
               }}
               className="block w-full text-left px-3 py-2 text-sm font-medium text-white hover:bg-white hover:bg-opacity-10 rounded-md"
+              style={{ boxShadow: "none", textShadow: "none" }}
             >
               For Creators
             </button>
@@ -185,6 +195,7 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
                 setIsMobileMenuOpen(false);
               }}
               className="block w-full text-left px-3 py-2 text-sm font-medium text-white hover:bg-white hover:bg-opacity-10 rounded-md"
+              style={{ boxShadow: "none", textShadow: "none" }}
             >
               Benefits
             </button>
@@ -194,6 +205,7 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
                 setIsMobileMenuOpen(false);
               }}
               className="mt-3 w-full text-center px-3 py-2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-md text-sm"
+              style={{ boxShadow: "none", textShadow: "none" }}
             >
               Sign Up
             </button>
