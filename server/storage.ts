@@ -57,7 +57,7 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getABTest(testId: string): Promise<ABTest | undefined> {
-    const result = await db.select().from(abTests).where(eq(abTests.id, testId));
+    const result = await db.select().from(abTests).where(eq(abTests.id, testId as any));
     return result.length ? result[0] : undefined;
   }
 
@@ -76,8 +76,8 @@ export class DatabaseStorage implements IStorage {
       .from(abTestVariations)
       .where(
         and(
-          eq(abTestVariations.testId, testId),
-          eq(abTestVariations.userId, userId)
+          eq(abTestVariations.testId, testId as any),
+          eq(abTestVariations.userId, userId as any)
         )
       );
     return result.length ? result[0] : undefined;
