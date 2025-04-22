@@ -31,12 +31,8 @@ export default function Hero({ theme, onRequestDemo }: HeroProps) {
           >
             <h1 className="text-5xl md:text-7xl font-extrabold mb-4">
               <span style={{ 
-                background: "linear-gradient(to right, #0FF, #00E5C7)", 
-                WebkitBackgroundClip: "text", 
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-                color: "transparent",
-                textShadow: "none" 
+                color: "#0FF",
+                textShadow: "0 0 10px rgba(0,255,255,0.5)",
               }}>Puggle AI</span>
             </h1>
             
@@ -44,28 +40,16 @@ export default function Hero({ theme, onRequestDemo }: HeroProps) {
               <p className="text-lg md:text-xl flex items-center justify-center">
                 <span className="scrolling-text-container">
                   <span className="scrolling-text" style={{ 
-                    background: "linear-gradient(to right, #0FF, #00E5C7)", 
-                    WebkitBackgroundClip: "text", 
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                    color: "transparent",
-                    textShadow: "none" 
+                    color: "#0FF",
+                    textShadow: "0 0 10px rgba(0,255,255,0.5)",
                   }}>For Coding</span>
                   <span className="scrolling-text" style={{ 
-                    background: "linear-gradient(to right, #0FF, #00E5C7)", 
-                    WebkitBackgroundClip: "text", 
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                    color: "transparent",
-                    textShadow: "none" 
+                    color: "#0FF",
+                    textShadow: "0 0 10px rgba(0,255,255,0.5)",
                   }}>For Deployment</span>
                   <span className="scrolling-text" style={{ 
-                    background: "linear-gradient(to right, #0FF, #00E5C7)", 
-                    WebkitBackgroundClip: "text", 
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                    color: "transparent",
-                    textShadow: "none" 
+                    color: "#0FF",
+                    textShadow: "0 0 10px rgba(0,255,255,0.5)",
                   }}>For Observability</span>
                 </span>
               </p>

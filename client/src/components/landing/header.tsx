@@ -48,48 +48,61 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
             >
               <div 
                 className="relative h-10 w-10 mr-3 rounded-full flex items-center justify-center overflow-hidden" 
-                style={{ ...menuItemStyle, border: "1px solid rgba(255,255,255,0.1)" }}
+                style={{ ...menuItemStyle, border: "none", background: "rgba(0,255,255,0.05)" }}
               >
                 <svg 
                   viewBox="0 0 24 24" 
-                  width="28" 
-                  height="28" 
+                  width="32" 
+                  height="32" 
                   fill="none" 
                   xmlns="http://www.w3.org/2000/svg"
                   style={menuItemStyle}
                 >
-                  {/* Abstract modern logo mark */}
+                  {/* Advanced creative logo with animation effect */}
                   <defs>
                     <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="0%" stopColor="#0FF" />
+                      <stop offset="50%" stopColor="#33F5E5" />
                       <stop offset="100%" stopColor="#00E5C7" />
                     </linearGradient>
+                    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                      <feGaussianBlur stdDeviation="1" result="blur" />
+                      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                    </filter>
                   </defs>
                   
-                  {/* Main geometric shapes */}
-                  <path d="M12 4L20 12L12 20L4 12L12 4Z" 
+                  {/* Brain abstract with tech circuitry */}
+                  <path 
+                    d="M12,4 C7,4 4,8 4,12 C4,16 7,20 12,20 C17,20 20,16 20,12 C20,8 17,4 12,4 Z" 
                     stroke="url(#logoGradient)" 
-                    strokeWidth="1.5" 
-                    fill="rgba(0,255,255,0.1)" />
+                    strokeWidth="1.5"
+                    fill="rgba(0,255,255,0.2)"
+                    filter="url(#glow)"
+                  />
                   
-                  <circle cx="12" cy="12" r="4" 
+                  {/* Circuit paths */}
+                  <path 
+                    d="M12,8 C10,8 9,9 9,10 C9,12 11,14 12,14 C13,14 15,12 15,10 C15,9 14,8 12,8 Z" 
                     stroke="url(#logoGradient)" 
-                    strokeWidth="1.5" 
-                    fill="transparent" />
+                    strokeWidth="1"
+                    fill="none"
+                  />
                   
-                  {/* Abstract intersecting lines */}
-                  <path d="M7 7L17 17M7 17L17 7" 
+                  <path 
+                    d="M8,12 L5,12 M16,12 L19,12 M12,8 L12,5 M12,16 L12,19" 
                     stroke="url(#logoGradient)" 
-                    strokeWidth="1" 
-                    strokeLinecap="round" />
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                  />
+                  
+                  {/* Center node */}
+                  <circle cx="12" cy="12" r="2" fill="url(#logoGradient)" />
                 </svg>
               </div>
               <motion.span 
-                style={{ background: "linear-gradient(to right, #0FF, #00E5C7)", 
-                  WebkitBackgroundClip: "text", 
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                  color: "transparent",
+                style={{ 
+                  color: "#0FF",
+                  textShadow: "0 0 10px rgba(0,255,255,0.5)",
                   ...menuItemStyle }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

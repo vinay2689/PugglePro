@@ -60,15 +60,12 @@ export default function Features({ theme }: FeaturesProps) {
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
             <span style={{ 
-              background: "linear-gradient(to right, #0FF, #00E5C7)", 
-              WebkitBackgroundClip: "text", 
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-              color: "transparent"
+              color: "#0FF",
+              textShadow: "0 0 10px rgba(0,255,255,0.5)"
             }}>Powerful features</span>
           </h2>
           <p className="mt-4 text-xl text-gray-600">
-            Puggle deeply integrates the entire development lifecycle into a single, powerful platform.
+            Enhance your workflow with our comprehensive suite of tools.
           </p>
         </motion.div>
 
