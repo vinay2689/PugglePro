@@ -7,17 +7,20 @@ interface ThemeContextProps {
   isDarkTheme: boolean;
 }
 
+// Default to Turquoise Dark theme (index 4)
+const turquoiseDarkTheme = themes[4];
+
 const defaultContext: ThemeContextProps = {
-  currentTheme: themes[0],
+  currentTheme: turquoiseDarkTheme,
   changeTheme: () => {},
-  isDarkTheme: false
+  isDarkTheme: true
 };
 
 export const ThemeContext = createContext<ThemeContextProps>(defaultContext);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  // Default to the windsurf theme (index 4) since the user specifically requested it
-  const [currentTheme, setCurrentTheme] = useState<ThemeOption>(themes[4]);
+  // Always use Turquoise Dark theme
+  const [currentTheme, setCurrentTheme] = useState<ThemeOption>(turquoiseDarkTheme);
   const [isDarkTheme, setIsDarkTheme] = useState<boolean>(true);
 
   const changeTheme = (theme: ThemeOption) => {
