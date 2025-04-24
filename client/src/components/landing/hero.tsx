@@ -42,8 +42,9 @@ export default function Hero({ theme, onRequestDemo }: HeroProps) {
           >
             <h1 className="text-5xl md:text-7xl font-extrabold mb-4">
               <span style={{ 
-                color: "#0FF",
-                textShadow: "0 0 15px rgba(0,255,255,0.7), 0 0 25px rgba(0,255,255,0.5)",
+                background: "linear-gradient(to right, blue, purple, pink, red)",
+                WebkitBackgroundClip: "text",
+                color: "transparent",
                 fontWeight: "700",
               }}>Puggle AI</span>
             </h1>
