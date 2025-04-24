@@ -37,7 +37,12 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
   return (
     <header
       className="fixed w-full z-50 transition-all"
-      style={menuItemStyle}
+      style={{
+        ...menuItemStyle,
+        background: "linear-gradient(to right, blue, purple, pink, red)",
+        WebkitBackgroundClip: "text",
+        color: "transparent"
+      }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8" style={menuItemStyle}>
         <div className="flex justify-between items-center py-6" style={menuItemStyle}>
@@ -47,60 +52,22 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
               style={menuItemStyle}
             >
               <div 
-                className="relative h-10 w-10 mr-3 rounded-full flex items-center justify-center overflow-hidden" 
-                style={{ ...menuItemStyle, border: "none", background: "rgba(0,255,255,0.15)" }}
+                className="mr-2 flex items-center justify-center" 
+                style={menuItemStyle}
               >
                 <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
                   viewBox="0 0 24 24" 
-                  width="32" 
-                  height="32" 
-                  fill="none" 
-                  xmlns="http://www.w3.org/2000/svg"
+                  width="24" 
+                  height="24"
                   style={menuItemStyle}
+                  className="text-white"
                 >
-                  {/* Code brackets logo with glow effect */}
-                  <defs>
-                    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#0FF" />
-                      <stop offset="100%" stopColor="#00E5C7" />
-                    </linearGradient>
-                    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
-                      <feGaussianBlur stdDeviation="2" result="blur" />
-                      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                    </filter>
-                    <filter id="innerGlow" x="-40%" y="-40%" width="180%" height="180%">
-                      <feGaussianBlur stdDeviation="1" result="blur" />
-                      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                    </filter>
-                  </defs>
-                  
-                  {/* Code brackets with glow effect */}
-                  <path 
-                    d="M8,4 L4,12 L8,20" 
-                    stroke="url(#logoGradient)" 
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    filter="url(#glow)"
-                  />
-                  
-                  <path 
-                    d="M16,4 L20,12 L16,20" 
-                    stroke="url(#logoGradient)" 
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    filter="url(#glow)"
-                  />
-                  
-                  {/* Slash for code */}
-                  <path 
-                    d="M14,4 L10,20" 
-                    stroke="url(#logoGradient)" 
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    filter="url(#innerGlow)"
-                  />
+                  <rect width="3" height="7" x="4" y="10" rx="1" fill="currentColor" />
+                  <rect width="3" height="7" x="10.5" y="10" rx="1" fill="currentColor" />
+                  <rect width="3" height="7" x="17" y="10" rx="1" fill="currentColor" />
+                  <rect width="16" height="3" x="4" y="5" rx="1" fill="currentColor" />
+                  <rect width="16" height="3" x="4" y="19" rx="1" fill="currentColor" />
                 </svg>
               </div>
               <motion.span 
