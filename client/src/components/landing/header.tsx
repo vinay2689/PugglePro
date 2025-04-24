@@ -20,18 +20,18 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Style with zero shadow properties
+  // Style with zero shadow properties (keeping this for other potential uses)
   const menuItemStyle = {
-    boxShadow: "none !important", 
-    textShadow: "none !important", 
-    filter: "none !important", 
+    boxShadow: "none !important",
+    textShadow: "none !important",
+    filter: "none !important",
     WebkitFilter: "none !important",
     background: "transparent !important",
     backdropFilter: "none !important",
     WebkitBackdropFilter: "none !important",
     textRendering: "optimizeLegibility",
     fontSmooth: "never",
-    MozOsxFontSmoothing: "grayscale"
+    MozOsxFontSmoothing: "grayscale",
   };
 
   return (
@@ -39,44 +39,86 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
       className="fixed w-full z-50 transition-all"
       style={{
         ...menuItemStyle,
-        background: "linear-gradient(to right, blue, purple, pink, red)",
-        WebkitBackgroundClip: "text",
-        color: "transparent"
+        // Apply gradient to the header background if you want the entire header to have a gradient
+        // background: "linear-gradient(to right, blue, purple, pink, red)",
+        // color: "white", // Keep text white for navigation items
       }}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8" style={menuItemStyle}>
-        <div className="flex justify-between items-center py-6" style={menuItemStyle}>
+      <div
+        className="container mx-auto px-4 sm:px-6 lg:px-8"
+        style={menuItemStyle}
+      >
+        <div
+          className="flex justify-between items-center py-6"
+          style={menuItemStyle}
+        >
           <div className="flex items-center" style={menuItemStyle}>
             <div
-              className="font-bold text-xl flex items-center text-white"
+              className="font-bold text-xl flex items-center" // Removed text-white here
               style={menuItemStyle}
             >
-              <div 
-                className="mr-2 flex items-center justify-center" 
+              <div
+                className="mr-2 flex items-center justify-center"
                 style={menuItemStyle}
               >
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  viewBox="0 0 24 24" 
-                  width="24" 
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
                   height="24"
                   style={menuItemStyle}
-                  className="text-white"
+                  className="text-white" // Keeping the SVG white
                 >
-                  <rect width="3" height="7" x="4" y="10" rx="1" fill="currentColor" />
-                  <rect width="3" height="7" x="10.5" y="10" rx="1" fill="currentColor" />
-                  <rect width="3" height="7" x="17" y="10" rx="1" fill="currentColor" />
-                  <rect width="16" height="3" x="4" y="5" rx="1" fill="currentColor" />
-                  <rect width="16" height="3" x="4" y="19" rx="1" fill="currentColor" />
+                  <rect
+                    width="3"
+                    height="7"
+                    x="4"
+                    y="10"
+                    rx="1"
+                    fill="currentColor"
+                  />
+                  <rect
+                    width="3"
+                    height="7"
+                    x="10.5"
+                    y="10"
+                    rx="1"
+                    fill="currentColor"
+                  />
+                  <rect
+                    width="3"
+                    height="7"
+                    x="17"
+                    y="10"
+                    rx="1"
+                    fill="currentColor"
+                  />
+                  <rect
+                    width="16"
+                    height="3"
+                    x="4"
+                    y="5"
+                    rx="1"
+                    fill="currentColor"
+                  />
+                  <rect
+                    width="16"
+                    height="3"
+                    x="4"
+                    y="19"
+                    rx="1"
+                    fill="currentColor"
+                  />
                 </svg>
               </div>
-              <motion.span 
-                style={{ 
-                  background: "linear-gradient(to right, blue, purple, pink, red)",
+              <motion.span
+                style={{
+                  background:
+                    "linear-gradient(to right, blue, purple, pink, red)",
                   WebkitBackgroundClip: "text",
                   color: "transparent",
                   fontWeight: "700",
-                  ...menuItemStyle 
+                  ...menuItemStyle,
                 }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -87,7 +129,10 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
             </div>
           </div>
 
-          <nav className="hidden md:flex items-center space-x-8" style={menuItemStyle}>
+          <nav
+            className="hidden md:flex items-center space-x-8"
+            style={menuItemStyle}
+          >
             <button
               onClick={() => onNavigate("features")}
               className="text-gray-300 hover:text-white transition-colors text-sm"
@@ -102,11 +147,14 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
             >
               <span style={menuItemStyle}>Benefits</span>
             </button>
-            
+
             <button
               onClick={() => onNavigate("request-demo")}
               className="px-4 py-1.5 text-sm text-white rounded-full transition-all hover:bg-opacity-30"
-              style={{...menuItemStyle, border: "1px solid rgba(255,255,255,0.1)"}}
+              style={{
+                ...menuItemStyle,
+                border: "1px solid rgba(255,255,255,0.1)",
+              }}
             >
               <span style={menuItemStyle}>Sign Up</span>
             </button>
@@ -115,7 +163,10 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
           <button
             className="md:hidden p-2 rounded-md text-gray-200"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            style={{...menuItemStyle, border: "1px solid rgba(255,255,255,0.1)"}}
+            style={{
+              ...menuItemStyle,
+              border: "1px solid rgba(255,255,255,0.1)",
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -136,15 +187,18 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
         </div>
 
         {/* Mobile menu */}
-        <motion.div 
+        <motion.div
           className={`md:hidden ${isMobileMenuOpen ? "block" : "hidden"} rounded-xl mt-2 overflow-hidden`}
           initial={{ height: 0, opacity: 0 }}
-          animate={{ 
+          animate={{
             height: isMobileMenuOpen ? "auto" : 0,
-            opacity: isMobileMenuOpen ? 1 : 0
+            opacity: isMobileMenuOpen ? 1 : 0,
           }}
           transition={{ duration: 0.3 }}
-          style={{...menuItemStyle, border: "1px solid rgba(255,255,255,0.1)"}}
+          style={{
+            ...menuItemStyle,
+            border: "1px solid rgba(255,255,255,0.1)",
+          }}
         >
           <div className="py-4 space-y-2 px-4" style={menuItemStyle}>
             <button
@@ -173,7 +227,10 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
                 setIsMobileMenuOpen(false);
               }}
               className="mt-3 w-full text-center px-3 py-2 text-white rounded-md text-sm"
-              style={{...menuItemStyle, border: "1px solid rgba(255,255,255,0.1)"}}
+              style={{
+                ...menuItemStyle,
+                border: "1px solid rgba(255,255,255,0.1)",
+              }}
             >
               <span style={menuItemStyle}>Sign Up</span>
             </button>

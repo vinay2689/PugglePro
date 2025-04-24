@@ -7,8 +7,8 @@ interface ThemeContextProps {
   isDarkTheme: boolean;
 }
 
-// Default to Turquoise Dark theme (index 4)
-const turquoiseDarkTheme = themes[4];
+// There's only one theme now - Turquoise Dark
+const turquoiseDarkTheme = themes[0];
 
 const defaultContext: ThemeContextProps = {
   currentTheme: turquoiseDarkTheme,
@@ -19,7 +19,7 @@ const defaultContext: ThemeContextProps = {
 export const ThemeContext = createContext<ThemeContextProps>(defaultContext);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  // Always use Turquoise Dark theme
+  // Always use Turquoise Dark theme - no switching possible
   const [currentTheme, setCurrentTheme] = useState<ThemeOption>(turquoiseDarkTheme);
   const [isDarkTheme, setIsDarkTheme] = useState<boolean>(true);
 
@@ -63,25 +63,14 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   };
 
   useEffect(() => {
-    // Try to get saved theme from localStorage
-    try {
-      const savedTheme = localStorage.getItem('puggle-theme');
-      if (savedTheme) {
-        const parsedTheme = JSON.parse(savedTheme);
-        // Find matching theme in our themes array to ensure it's valid
-        const matchedTheme = themes.find(t => t.name === parsedTheme.name);
-        if (matchedTheme) {
-          changeTheme(matchedTheme);
-          return;
-        }
-      }
-    } catch (e) {
-      // If localStorage access fails, quietly fail
-      console.log('Could not load theme from localStorage');
-    }
+    // Always apply the Turquoise Dark theme immediately
+    changeTheme(turquoiseDarkTheme);
     
-    // If no saved theme was found or valid, initialize with default theme
-    changeTheme(currentTheme);
+    // Force dark theme application
+    document.documentElement.style.backgroundColor = turquoiseDarkTheme.background;
+    document.body.style.backgroundColor = turquoiseDarkTheme.background;
+    document.body.style.color = turquoiseDarkTheme.textLight;
+    document.body.classList.add('dark-theme');
   }, []);
 
   return (

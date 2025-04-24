@@ -44,8 +44,10 @@ export default function Hero({ theme, onRequestDemo }: HeroProps) {
               <span style={{ 
                 background: "linear-gradient(to right, blue, purple, pink, red)",
                 WebkitBackgroundClip: "text",
+                backgroundClip: "text",
                 color: "transparent",
                 fontWeight: "700",
+                display: "inline-block"
               }}>Puggle AI</span>
             </h1>
             
