@@ -93,30 +93,45 @@ export default function Footer({ theme }: FooterProps) {
               </a>
             </div>
             <p className="text-sm text-gray-400">Stay updated with our newsletter</p>
-            <div className="mt-2 flex">
-              <input
-                type="email"
-                placeholder="Email address"
-                className="px-3 py-2 bg-gray-800 text-gray-300 rounded-l-md focus:outline-none focus:ring-1 focus:ring-primary-500 w-full"
-              />
-              <button
-                className="px-4 py-2 rounded-r-md transition-colors"
-                style={{ backgroundColor: theme.primary }}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
+            {subscribed ? (
+              <div className="mt-2 py-2 px-4 bg-green-900/30 text-green-300 rounded-md border border-green-700">
+                Thank you for subscribing!
+              </div>
+            ) : (
+              <div className="mt-2 flex">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Email address"
+                  className="px-3 py-2 bg-gray-800 text-gray-300 rounded-l-md focus:outline-none focus:ring-1 focus:ring-primary-500 w-full"
+                  disabled={isSubmitting}
+                />
+                <button
+                  onClick={handleSubscribe}
+                  disabled={isSubmitting || !email}
+                  className="px-4 py-2 rounded-r-md transition-colors disabled:opacity-50"
+                  style={{ backgroundColor: theme.primary }}
                 >
-                  <path
-                    fillRule="evenodd"
-                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </button>
-            </div>
+                  {isSubmitting ? (
+                    <div className="h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  )}
+                </button>
+              </div>
+            )}
           </div>
         </div>
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
