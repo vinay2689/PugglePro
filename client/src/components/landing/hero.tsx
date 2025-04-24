@@ -88,7 +88,7 @@ export default function Hero({ theme, onRequestDemo }: HeroProps) {
                 }}
                 className="cluely-button cluely-button-primary px-8 py-3 text-lg"
               >
-                {isA ? "Request a Demo" : "Try Puggle Now"}
+                {isA ? "Request a Demo" : "Join Waitlist"}
               </button>
             </motion.div>
           </motion.div>
