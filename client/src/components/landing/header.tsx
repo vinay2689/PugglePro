@@ -72,10 +72,12 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
               </div>
               <motion.span 
                 style={{ 
-                  color: "#0FF",
-                  textShadow: "0 0 15px rgba(0,255,255,0.7), 0 0 25px rgba(0,255,255,0.5)",
+                  background: "linear-gradient(to right, blue, purple, pink, red)",
+                  WebkitBackgroundClip: "text",
+                  color: "transparent",
                   fontWeight: "700",
-                  ...menuItemStyle }}
+                  ...menuItemStyle 
+                }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}

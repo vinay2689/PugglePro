@@ -137,8 +137,29 @@ export default function Footer({ theme }: FooterProps) {
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center">
             <div className="text-white font-extrabold text-xl flex items-center">
-              <Code className="mr-2" />
-              Puggle
+              <div className="mr-2 flex items-center justify-center">
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  viewBox="0 0 24 24" 
+                  width="24" 
+                  height="24"
+                  className="text-white"
+                >
+                  <rect width="3" height="7" x="4" y="10" rx="1" fill="currentColor" />
+                  <rect width="3" height="7" x="10.5" y="10" rx="1" fill="currentColor" />
+                  <rect width="3" height="7" x="17" y="10" rx="1" fill="currentColor" />
+                  <rect width="16" height="3" x="4" y="5" rx="1" fill="currentColor" />
+                  <rect width="16" height="3" x="4" y="19" rx="1" fill="currentColor" />
+                </svg>
+              </div>
+              <span style={{ 
+                background: "linear-gradient(to right, blue, purple, pink, red)",
+                WebkitBackgroundClip: "text",
+                color: "transparent",
+                fontWeight: "700",
+              }}>
+                Puggle
+              </span>
             </div>
           </div>
           <div className="mt-4 md:mt-0 text-sm text-gray-400">
