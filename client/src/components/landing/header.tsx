@@ -116,9 +116,11 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
                   background:
                     "linear-gradient(to right, blue, purple, pink, red)",
                   WebkitBackgroundClip: "text",
+                  backgroundClip: "text",
                   color: "transparent",
                   fontWeight: "700",
-                  ...menuItemStyle,
+                  display: "inline-block",
+                  textShadow: "none"
                 }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
