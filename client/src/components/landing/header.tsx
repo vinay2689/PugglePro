@@ -127,20 +127,6 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
               <span style={menuItemStyle}>Features</span>
             </button>
             <button
-              onClick={() => onNavigate("professional")}
-              className="text-gray-300 hover:text-white transition-colors text-sm"
-              style={menuItemStyle}
-            >
-              <span style={menuItemStyle}>For Professionals</span>
-            </button>
-            <button
-              onClick={() => onNavigate("creators")}
-              className="text-gray-300 hover:text-white transition-colors text-sm"
-              style={menuItemStyle}
-            >
-              <span style={menuItemStyle}>For Creators</span>
-            </button>
-            <button
               onClick={() => onNavigate("benefits")}
               className="text-gray-300 hover:text-white transition-colors text-sm"
               style={menuItemStyle}
@@ -201,26 +187,6 @@ export default function Header({ theme, onNavigate }: HeaderProps) {
               style={menuItemStyle}
             >
               <span style={menuItemStyle}>Features</span>
-            </button>
-            <button
-              onClick={() => {
-                onNavigate("professional");
-                setIsMobileMenuOpen(false);
-              }}
-              className="block w-full text-left px-3 py-2 text-sm font-medium text-white hover:bg-white hover:bg-opacity-10 rounded-md"
-              style={menuItemStyle}
-            >
-              <span style={menuItemStyle}>For Professionals</span>
-            </button>
-            <button
-              onClick={() => {
-                onNavigate("creators");
-                setIsMobileMenuOpen(false);
-              }}
-              className="block w-full text-left px-3 py-2 text-sm font-medium text-white hover:bg-white hover:bg-opacity-10 rounded-md"
-              style={menuItemStyle}
-            >
-              <span style={menuItemStyle}>For Creators</span>
             </button>
             <button
               onClick={() => {

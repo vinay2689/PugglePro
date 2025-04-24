@@ -7,8 +7,6 @@ import Features from "./features";
 import Professionals from "./professionals";
 import Creators from "./creators";
 import Benefits from "./benefits";
-import Showcase from "./showcase";
-import Testimonials from "./testimonials";
 import CTA from "./cta";
 import Footer from "./footer";
 
@@ -62,8 +60,6 @@ export default function Landing({ theme }: LandingProps) {
       <div ref={benefitsRef} className="theme-transition">
         <Benefits theme={theme} />
       </div>
-      <Showcase theme={theme} onWatchDemo={() => scrollToSection(ctaRef)} />
-      <Testimonials theme={theme} />
       <div ref={ctaRef} className="theme-transition">
         <CTA theme={theme} />
       </div>

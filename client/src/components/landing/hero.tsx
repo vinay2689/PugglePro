@@ -75,7 +75,7 @@ export default function Hero({ theme, onRequestDemo }: HeroProps) {
             
             
             <motion.div
-              className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 mt-4"
+              className="flex justify-center items-center mt-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -86,16 +86,9 @@ export default function Hero({ theme, onRequestDemo }: HeroProps) {
                   setDemoClicked(true);
                   onRequestDemo();
                 }}
-                className="cluely-button cluely-button-primary"
+                className="cluely-button cluely-button-primary px-8 py-3 text-lg"
               >
                 {isA ? "Request a Demo" : "Try Puggle Now"}
-              </button>
-              
-              <button 
-                onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
-                className="cluely-button"
-              >
-                Learn More
               </button>
             </motion.div>
           </motion.div>
